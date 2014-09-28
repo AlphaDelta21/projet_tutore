@@ -4,9 +4,9 @@
 	<head>
 		<title>IUT Dijon informatique</title>
 		<meta charset="utf-8">
-		<link rel="stylesheet" href="interface1.css">
 		<link rel="shortcut icon" type="image/x-icon" href="../images/iut-dijon.jpg" />
-		<meta name="generator" content="Bluefish 2.2.5" >
+		
+        <meta name="generator" content="Bluefish 2.2.5" >
 		<meta name="author" content="elodie" >
 		<meta name="date" content="2014-09-28T14:54:40+0200" >
 		<meta name="copyright" content="www.asq-gr.fr">
@@ -19,12 +19,12 @@
 	</head>
 
 <body>
-	<div>
-		coucou
-	</div>
 	
-	<div>
+    <div class="div_centre">
+    
+   
 	</div>
+    <?php include 'includes/footer.php' ;?>
 	
 </body>
 
