@@ -12,16 +12,79 @@ body
 
 .div_centre
 {
-	width:60%;
+	width:80%;
+	height:100%;
 	margin:auto;
 	border:4px grey solid;
 	border-radius:3px;
-	height:500px;
-	background-image:linear-gradient(#9C6127, #EBCDB0); 
-	height:100%;
+	background-image:linear-gradient(#9C6127, #EBCDB0);	
+}
+
+
+
+.div_connexion
+{
+	border:2px black solid;
+	border-radius:15px;
+	text-align:center;
+	width:40%;
+	height:auto;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:auto;		
+}
+
+.div_choix
+{
+	border:2px black solid;
+	border-radius:15px;
+	text-align:center;
+	width:40%;
+	height:auto;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:20%;	
+}
+
+
+/* ------------------------------------- */
+
+.line
+{
+	vertical-align:top;
+	margin:0;
+	width: 100%;
+	height:4px;
+}
+
+.bouton_connexion
+{
+	width:70%;
+	height:15%;
+	font-size: 1vw;
+	text-align:center;
+	width:9.7vw;
+}
+
+.p_connexion
+{
+
 }
 
 .div_footer
 {
 	text-align:right;	
+}
+
+h1
+{
+	text-align:center;
+	font-size:2.5vw;
+}
+
+h3
+{
+	vertical-align:top;
+	font-size:2vw;
+	margin:0px 0px 5px 0px;
 }
