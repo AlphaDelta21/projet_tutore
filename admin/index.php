@@ -8,7 +8,7 @@
 		<link rel="shortcut icon" type="image/x-icon" href="../images/iut-dijon.jpg" />
 		<meta name="generator" content="Bluefish 2.2.5" >
 		<meta name="author" content="elodie" >
-		<meta name="date" content="2014-09-28T17:53:16+0200" >
+		<meta name="date" content="2014-09-28T18:05:09+0200" >
 		<meta name="copyright" content="www.nomsite.fr">
 		<meta name="keywords" content="">
 		<meta name="description" content="Site de sondages de l'IUT informatique de Dijon">

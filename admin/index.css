@@ -15,15 +15,17 @@ body
 	border: 2px solid black;
 	margin-left: auto;
 	margin-right: auto;
-	width: 60%;
+	width: 80%;
+	height: 90%;
 	background-color: #F29C51;
+	position: relative;
 }
 
 .piedpage
 {
 	border: 1px solid black;
-	height: 100px;
-	--position: absolute;
+	height: 10%;
+	position: absolute;
 	bottom: 0;
 	left: 0;
 	right: 0;
@@ -32,4 +34,17 @@ body
 .droite, .gauche, .newquestion, .historique, .descriptionprof
 {
 	border: 1px solid black;
+}
+
+
+.historique
+{
+	float: left;
+	width: 70%;
+}
+
+.newquestion
+{
+	width: 30%;
+	margin-left: 70%;
 }
