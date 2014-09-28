@@ -1,0 +1,27 @@
+html, body 
+{
+padding : 0;
+margin : 0;
+height : 100%;
+}
+
+body
+{
+	background-color:rgb(230,230,230);	
+}
+
+.div_centre
+{
+	width:60%;
+	margin:auto;
+	border:4px grey solid;
+	border-radius:3px;
+	height:500px;
+	background-image:linear-gradient(#9C6127, #EBCDB0); 
+	height:100%;
+}
+
+.div_footer
+{
+	text-align:right;	
+}
