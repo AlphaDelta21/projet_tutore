@@ -4,11 +4,11 @@
 	<head>
 		<title>IUT Dijon informatique</title>
 		<meta charset="utf-8">
-		<link rel="stylesheet" href="interface1.css">
+		<link rel="stylesheet" href="index.css">
 		<link rel="shortcut icon" type="image/x-icon" href="../images/iut-dijon.jpg" />
 		<meta name="generator" content="Bluefish 2.2.5" >
 		<meta name="author" content="elodie" >
-		<meta name="date" content="2014-09-28T17:44:09+0200" >
+		<meta name="date" content="2014-09-28T17:53:16+0200" >
 		<meta name="copyright" content="www.nomsite.fr">
 		<meta name="keywords" content="">
 		<meta name="description" content="Site de sondages de l'IUT informatique de Dijon">
