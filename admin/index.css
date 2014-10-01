@@ -1,0 +1,71 @@
+html, body 
+{
+	padding: 0;
+	margin-bottom: 0;
+	height: 100%;
+	padding : 0;
+	margin : 0;
+	height : 100%;
+}
+body
+{
+	background-color: #EDEDED;
+	font-family: Arial;
+}
+
+.contenupage
+{
+	margin-left: auto;
+	margin-right: auto;
+	width: 80%;
+	height: 88%;
+	background-color: #FFFFFF;
+	text-align: center;
+	box-shadow: 5px 5px 2px #888888;
+	border-radius: 3px;
+	height: 90%;
+}
+
+.contenu
+{
+	width: 100%;
+	height: 100%;
+}
+
+.historique
+{
+	float: left;
+	width: 70%;
+	height: 89%;
+	border-right: 1px solid;
+}
+
+.newquestion
+{
+	height: 89%;
+	vertical-align: middle;
+}
+
+.descriptionprof
+{
+	height: 10%;
+	border-bottom: 1px solid;
+	text-align: left;
+}
+
+
+.piedpage
+{
+	height: 10%;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	--border: 1px solid black;
+	text-align: center;
+	font-size: 80%;
+}
+
+.newquestion, .historique
+{
+}
