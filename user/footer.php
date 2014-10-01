@@ -3,5 +3,5 @@
 </head>
 
 <div class="div_footer">
-	Développé par αβ
+	Développé par <a href="includes/alpha-beta.php">αβ</a>
 </div>
