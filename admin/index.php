@@ -8,7 +8,7 @@
 		<link rel="shortcut icon" type="image/x-icon" href="../images/iut-dijon.jpg" />
 		<meta name="generator" content="Bluefish 2.2.5" >
 		<meta name="author" content="elodie" >
-		<meta name="date" content="2014-10-01T18:25:53+0200" >
+		<meta name="date" content="2014-10-01T19:07:16+0200" >
 		<meta name="copyright" content="www.nomsite.fr">
 		<meta name="keywords" content="">
 		<meta name="description" content="Site de sondages de l'IUT informatique de Dijon">
@@ -23,7 +23,7 @@
 <div style="height : 100%;">
 		<div class="contenupage">
 			<div class="descriptionprof">
-				Nom professeur, matière, moubfbc
+				Professeur : .
 			</div>
 			<div class="contenu">
 				<div class="historique">
@@ -31,7 +31,7 @@
 					
 					<table style="background-color:#F3F3F3;"> 
 						<tr>
-							<td>coucou</td>
+							<td>test </td>
 						</tr>
 					</table>
 					

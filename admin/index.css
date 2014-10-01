@@ -34,8 +34,8 @@ body
 h1
 {
 	font-size: 150%;
-	color:#96A72A;
-	text-shadow: 1px 1px 1px #777;
+	color:#FF7800;
+	--text-shadow: 1px 1px 1px #777;
 }
 
 .historique
@@ -43,7 +43,7 @@ h1
 	float: left;
 	width: 70%;
 	height: 89%;
-	border-right: 3px dotted #0D93E6;
+	border-right: 3px dotted #AECC42;
 	text-align: left;
 }
 
@@ -56,8 +56,11 @@ h1
 .descriptionprof
 {
 	height: 10%;
-	border-bottom: 1px solid;
+	font-size: 150%;
 	text-align: left;
+	background-color: #AECC42;
+	color: white;
+	vertical-align: middle;
 }
 
 
