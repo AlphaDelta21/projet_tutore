@@ -1,15 +1,11 @@
 html, body 
 {
-<<<<<<< HEAD
 	padding: 0;
 	margin-bottom: 0;
 	height: 100%;
-	
-=======
-padding : 0;
-margin : 0;
-height : 100%;
->>>>>>> d804c915844f855cee0a33e616223bfbf385b8dd
+	padding : 0;
+	margin : 0;
+	height : 100%;
 }
 body
 {
@@ -22,16 +18,12 @@ body
 	margin-left: auto;
 	margin-right: auto;
 	width: 80%;
-<<<<<<< HEAD
 	height: 88%;
 	background-color: #FFFFFF;
 	text-align: center;
 	box-shadow: 5px 5px 2px #888888;
 	border-radius: 3px;
-=======
 	height: 90%;
-	background-color: #F29C51;
->>>>>>> d804c915844f855cee0a33e616223bfbf385b8dd
 }
 
 .contenu
