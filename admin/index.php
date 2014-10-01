@@ -8,7 +8,7 @@
 		<link rel="shortcut icon" type="image/x-icon" href="../images/iut-dijon.jpg" />
 		<meta name="generator" content="Bluefish 2.2.5" >
 		<meta name="author" content="elodie" >
-		<meta name="date" content="2014-09-28T22:20:16+0200" >
+		<meta name="date" content="2014-10-01T18:25:53+0200" >
 		<meta name="copyright" content="www.nomsite.fr">
 		<meta name="keywords" content="">
 		<meta name="description" content="Site de sondages de l'IUT informatique de Dijon">
@@ -27,7 +27,14 @@
 			</div>
 			<div class="contenu">
 				<div class="historique">
-					Historique des questions déja posées		
+					<h1>Questions déja posées</h1>
+					
+					<table style="background-color:#F3F3F3;"> 
+						<tr>
+							<td>coucou</td>
+						</tr>
+					</table>
+					
 				</div>
 				
 				<div class="newquestion">
