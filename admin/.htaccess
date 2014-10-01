@@ -1,4 +1,4 @@
 AuthName "Page d'administration protégée"
 AuthType Basic
-AuthUserFile "/home/site/www/admin/.htpasswd"
+AuthUserFile "/home/elodie/public_html/projet_tutore/admin/.htpasswd"
 Require valid-user
