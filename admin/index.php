@@ -8,7 +8,7 @@
 		<link rel="shortcut icon" type="image/x-icon" href="../images/iut-dijon.jpg" />
 		<meta name="generator" content="Bluefish 2.2.5" >
 		<meta name="author" content="elodie" >
-		<meta name="date" content="2014-10-01T19:07:16+0200" >
+		<meta name="date" content="2014-10-09T18:34:51+0200" >
 		<meta name="copyright" content="www.nomsite.fr">
 		<meta name="keywords" content="">
 		<meta name="description" content="Site de sondages de l'IUT informatique de Dijon">
@@ -23,22 +23,19 @@
 <div style="height : 100%;">
 		<div class="contenupage">
 			<div class="descriptionprof">
-				Professeur : .
+				Authentification
+				<img src="../images/iut-dijon.png" alt="">
 			</div>
 			<div class="contenu">
-				<div class="historique">
-					<h1>Questions déja posées</h1>
+				<div>
+					Identifiez vous.
+					<form>
+						<label>Identifiant :</label> <input type="text" name="identifiant" id="identifiant"> <br>
+						<label>Mot de passe :</label> <input type="text" name="mdp" id="mdp">	<br>
+						<input type="submit" value="Connexion"> <br>				
+					</form>
+					Mot de passe oublié ? Pas encore inscrit ?
 					
-					<table style="background-color:#F3F3F3;"> 
-						<tr>
-							<td>test </td>
-						</tr>
-					</table>
-					
-				</div>
-				
-				<div class="newquestion">
-					Publier une nouvelle question.		
 				</div>
 			</div>
 		</div>

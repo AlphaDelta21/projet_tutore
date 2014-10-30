@@ -38,6 +38,12 @@ h1
 	--text-shadow: 1px 1px 1px #777;
 }
 
+img
+{
+	float: right;
+	height: 100%;	
+}
+
 .historique
 {
 	float: left;
