@@ -9,8 +9,7 @@ class bdd
 	private $identifiant;
 	private $mdp;
 	private $bdd;
-	
-	
+		
 
 	//constructeur 	
 	public function __construct()
@@ -37,12 +36,6 @@ class bdd
 		}
 	}
 	
-/*	public function getBdd()
-	{
-		return $this->bdd;	
-	}	
-*/	
-
 
 	//recupère l'objet crée.
 	public function add(animal $animal)
@@ -58,20 +51,17 @@ class bdd
 		return $q->execute();
 	}
 	
-	
-	
 	public function remove(Animal $animal)
 	{
-		$this->bdd->exec('DELETE FROM animal WHERE id = '.$animal->getid());
+		$this->bdd->exec('DELETE FROM question WHERE id = '.$animal->getid());
 
 	}	
-
 	
 	public function getList()
 	{
 		
 		$animal = array();
-		$q = $this->bdd->query("SELECT * FROM animal");
+		$q = $this->bdd->query("SELECT * FROM question");
 		
 		while ($donnees = $q->fetch(PDO::FETCH_ASSOC)) 
 		{
@@ -87,7 +77,7 @@ class bdd
 
 	public function getAnimal($id)
 	{
-		$q = $this->bdd->query("SELECT * FROM animal WHERE id='".$id."'");
+		$q = $this->bdd->query("SELECT * FROM question WHERE id='".$id."'");
 		
 		$donnees = $q->fetch(PDO::FETCH_ASSOC);
 		
@@ -103,7 +93,7 @@ class bdd
 	public function update(animal $animal)
 	{
 		
-		$q= $this->bdd->prepare("UPDATE animal 
+		$q= $this->bdd->prepare("UPDATE question 
 										SET nom=:nom, espece=:espece, cri=:cri, proprietaire=:proprietaire, age=:age 
 										WHERE id = :id");
 

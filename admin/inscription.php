@@ -8,7 +8,7 @@
 		<link rel="shortcut icon" type="image/x-icon" href="../images/iut-dijon.jpg" />
 		<meta name="generator" content="Bluefish 2.2.5" >
 		<meta name="author" content="elodie" >
-		<meta name="date" content="2014-11-05T18:29:30+0100" >
+		<meta name="date" content="2014-11-05T18:31:41+0100" >
 		<meta name="copyright" content="www.nomsite.fr">
 		<meta name="keywords" content="">
 		<meta name="description" content="Site de sondages de l'IUT informatique de Dijon">
@@ -33,15 +33,6 @@
 			</div>
 			<div class="contenu">
 				<div>
-					Identifiez vous.
-					<form method="POST" action="traitement.php">
-						<label>Identifiant :</label> 
-							<input type="text" name="identifiant" id="identifiant"> <br>
-						<label>Mot de passe :</label> 
-							<input type="password" name="mdp" id="mdp">	<br>
-						<input type="submit" name="connexion" value="Connexion"> <br>				
-					</form>
-					<a href="mdp_forget.php">Mot de passe oublié ?</a> <a href="inscription.php">Pas encore inscrit ?</a>
 					
 				</div>
 			</div>
