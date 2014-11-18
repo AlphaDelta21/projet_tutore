@@ -1,0 +1,97 @@
+html, body 
+{
+padding : 0;
+margin : 0;
+height : 100%;
+}
+
+body
+{
+	background-color:rgb(230,230,230);	
+}
+
+/* ------------------------------------- */
+
+
+.div_img
+{
+	width:100%;
+	text-align:center;	
+}
+
+.form_page1
+{
+	text-align:center;	
+}
+
+.img_iut
+{
+	width:20%;
+	height:20%;
+	box-shadow:#FFFFFF;
+}
+
+.p_code
+{
+	/*font-weight: bold;*/
+	font-family:Verdana;
+	text-align:center;	
+	font-size:1.5em;
+}
+
+.txt_code
+{
+	width:10em;
+	height:2em;	
+	margin:0;
+}
+/* ------------------------------------- */
+
+.line
+{
+	vertical-align:top;
+	margin:0;
+	width: 100%;
+	height:4px;
+}
+
+/*.bouton_connexion              --à utiliser pour bouton vote
+{
+	width:70%;
+	height:15%;
+	font-size: 1vw;
+	text-align:center;
+	width:9.7vw;
+}*/
+
+
+h1
+{
+	text-align:center;
+	font-size:2.5vw;
+}
+
+h3
+{
+	vertical-align:top;
+	font-size:2vw;
+	margin:0px 0px 5px 0px;
+}
+
+
+/************************footer************************/
+.div_footer
+{
+	width:100%;
+	position:absolute;	
+	bottom:0px;
+	text-align:right;
+}
+
+.p_footer
+{
+	margin:0;
+	padding:0;
+	font-size:1em;
+		
+}
