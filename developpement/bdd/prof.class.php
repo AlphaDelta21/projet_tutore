@@ -50,5 +50,10 @@ class prof
 		$this->email = $email;
 	}
 	
+	function inscription()
+	{
+		
+	}
+	
 }		
 ?>
