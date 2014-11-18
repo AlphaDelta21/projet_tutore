@@ -26,4 +26,5 @@ imagettftext($im,$taille,$angle,$posx,$posy,$ecriture_color,$font,$code); // ens
 $_SESSION['captcha']=$code; // et on sauve le code en session qui pourra être testé plus tard
 
 imagepng($im);// création de l'image
+
 ?>

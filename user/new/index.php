@@ -2,17 +2,16 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Sandage amphithéâtre</title>
+<title>Sondage en amphithéâtre</title>
 </head>
 
 <body>
-
 <div class="div_img">
 	<img src="images/iut-dijon.png" class="img_iut"  alt=""/>
 </div>
 
-<form class="form_page1">
-	<p class="p_code"> Entrez le code donné par votre professeur :  <input class="txt_code" type="text" required></p>	
+<form class="form_page1" action="question.php" method="post">
+	<p class="p_code"> Entrez le code donné par votre professeur :  <input name="txt_code" type="text" required></p>	
     <br>
     <label for="captcha">Recopiez le mot : <img src="captcha.php"></label>
 	<input type="text" name="captcha" id="captcha" />

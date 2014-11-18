@@ -19,6 +19,7 @@ body
 	text-align:center;	
 }
 
+
 .form_page1
 {
 	text-align:center;	
@@ -45,6 +46,16 @@ body
 	height:2em;	
 	margin:0;
 }
+
+
+/* ------------------------------------- */
+
+.radio
+{
+	width:1.7em;
+	height:1.7em;
+}
+
 /* ------------------------------------- */
 
 .line
