@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 
 <head>
-		<title>ASQuetigny GRS</title>
+		<title>Sondage Amphithéatre</title>
 		<meta charset="utf-8">
 		<link rel="stylesheet" href="index.css">
 		<link rel="shortcut icon" type="image/x-icon" href="images/ASQ.jpg" />
