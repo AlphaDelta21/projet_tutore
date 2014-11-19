@@ -4,7 +4,7 @@
  * @author Alexis Viverge
  */
 
-/*function captcha($nombreCaractere)
+function captcha($nombreCaractere)
 {
     session_start();
 	
@@ -15,11 +15,10 @@
  
     return $code;
 	
-}*/
+}
 
-header ("Content-type: image/png"); // on va faire une image jpg
-session_start(); // on utilise les sessions pour mettre de côté le code aléatoire créé
-
+/*session_start(); // on utilise les sessions pour mettre de côté le code aléatoire créé
+header ("Content-type: image/png"); // on va faire une image png
 
 $code='MN7WGABDEF47GHJKLMNPRSTUVWXYZ123456789'; // les lettres de base
 $code=str_shuffle(substr(str_shuffle($code),0,5)); // qu'on mélange!
@@ -44,6 +43,6 @@ imagettftext($im,$taille,$angle,$posx,$posy,$ecriture_color,$font,$code); // ens
 
 $_SESSION['captcha']=$code; // et on sauve le code en session qui pourra être testé plus tard
 
-imagepng($im);// création de l'image
+imagepng($im);// création de l'image*/
 
 ?>

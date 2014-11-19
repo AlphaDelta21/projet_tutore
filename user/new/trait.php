@@ -15,8 +15,8 @@ if(isset($_POST['rep']))
 	$R = $_POST['rep'];
 	
 	
-	echo '<p class="p_code">Merci d\'avoir voté, vous avez choisit la réponse :"<i>'.$R.'</i>".</p>';
-	echo '<p class="p_code">Voter professeur vous communiquera la réponse sous peut.</p>';
+	echo '<p class="p_code">Merci d\'avoir voté, vous avez choisi la réponse :"<i>'.$R.'</i>".</p>';
+	echo '<p class="p_code">Voter professeur vous communiquera la réponse sous peu.</p>';
 }
 else
 {

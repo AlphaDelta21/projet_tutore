@@ -30,9 +30,15 @@ if(isset($_POST['captcha']) && isset($_POST['txt_code']))
     </form>
 	';
 	}
+	
 	else
 	{
-		echo 'coucou';	
+		echo '
+		<br>
+		Le captcha n\'a pas été correctement tapé, veuillez recommencer.
+		<br>
+		<a href="index.php"> Retour au menu</a>';
+		
 	}
 }
 ?>
