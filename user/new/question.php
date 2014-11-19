@@ -10,8 +10,12 @@
 	<img src="images/iut-dijon.png" style="width:10%;" class="img_iut"  alt=""/>
 
 <?php
+session_start();
+
 if(isset($_POST['captcha']) && isset($_POST['txt_code']))
-{    
+{
+	if ($_POST['captcha']==$_SESSION['captcha'])
+    { 
 	echo'
 	<form class="form_page2" action="trait.php" method="post">
         <p class="p_code"> Question de votre professeur :  <i>"la question ici"</i></p>	
@@ -25,6 +29,11 @@ if(isset($_POST['captcha']) && isset($_POST['txt_code']))
     	<input type="submit" value="Valider" />
     </form>
 	';
+	}
+	else
+	{
+		echo 'coucou';	
+	}
 }
 ?>
 

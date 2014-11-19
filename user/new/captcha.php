@@ -1,6 +1,25 @@
 <?php
-session_start(); // on utilise les sessions pour mettre de côté le code aléatoire créé
+/**
+ * Fonction qui retournera un captcha
+ * @author Alexis Viverge
+ */
+
+/*function captcha($nombreCaractere)
+{
+    session_start();
+	
+	$code = 'ABCDEFGHIJKLMNPQRSTUVWXYZ123456789'; // chaine des caractères qu'on utilisera
+    $code = str_shuffle(substr(str_shuffle($code),0,5)); //m élange de tous les caractères et selection de seulement 5
+ 
+	$_SESSION['captcha']=$code; // sauvegarde du code, pour le vérifier plus tard
+ 
+    return $code;
+	
+}*/
+
 header ("Content-type: image/png"); // on va faire une image jpg
+session_start(); // on utilise les sessions pour mettre de côté le code aléatoire créé
+
 
 $code='MN7WGABDEF47GHJKLMNPRSTUVWXYZ123456789'; // les lettres de base
 $code=str_shuffle(substr(str_shuffle($code),0,5)); // qu'on mélange!
