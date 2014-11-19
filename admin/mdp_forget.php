@@ -6,9 +6,9 @@
 		<meta charset="utf-8">
 		<link rel="stylesheet" href="index.css">
 		<link rel="shortcut icon" type="image/x-icon" href="../images/iut-dijon.jpg" />
-		<meta name="generator" content="Bluefish 2.2.5" >
+		<meta name="generator" content="Bluefish 2.2.6" >
 		<meta name="author" content="elodie" >
-		<meta name="date" content="2014-11-05T18:31:19+0100" >
+		<meta name="date" content="2014-11-19T17:40:17+0100" >
 		<meta name="copyright" content="www.nomsite.fr">
 		<meta name="keywords" content="">
 		<meta name="description" content="Site de sondages de l'IUT informatique de Dijon">
@@ -28,7 +28,7 @@
 	<div style="height : 100%;">
 		<div class="contenupage">
 			<div class="descriptionprof">
-				Oublie de mot de passe
+				Oubli de mot de passe
 				<img src="../images/iut-dijon.png" alt="">
 			</div>
 			<div class="contenu">
