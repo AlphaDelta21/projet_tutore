@@ -8,7 +8,7 @@
 		<link rel="shortcut icon" type="image/x-icon" href="../images/iut-dijon.jpg" />
 		<meta name="generator" content="Bluefish 2.2.6" >
 		<meta name="author" content="elodie" >
-		<meta name="date" content="2014-11-19T17:38:14+0100" >
+		<meta name="date" content="2014-11-19T22:49:54+0100" >
 		<meta name="copyright" content="www.nomsite.fr">
 		<meta name="keywords" content="">
 		<meta name="description" content="Site de sondages de l'IUT informatique de Dijon">
@@ -25,7 +25,7 @@
 
 <body>
 
-<div style="height : 100%;">
+<div style="height: 100%;">
 		<div class="contenupage">
 			<div class="descriptionprof">
 				Authentification
@@ -44,12 +44,17 @@
 					<a href="mdp_forget.php">Mot de passe oublié ?</a> <a href="inscription.php">Pas encore inscrit ?</a>
 					
 				</div>
+				<div>
+
+				</div>
 			</div>
 		</div>
 	<div class="piedpage">
 		Développé par le groupe AlphaDelta
 	</div>
 </div>
+					<a href="interface.php">Interface gestion des questions</a>
+					<a href="../user/new/index.php">Interface elève menu accueil</a>
 
 </body>
 

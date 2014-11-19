@@ -8,7 +8,7 @@
 		<link rel="shortcut icon" type="image/x-icon" href="../images/iut-dijon.jpg" />
 		<meta name="generator" content="Bluefish 2.2.6" >
 		<meta name="author" content="elodie" >
-		<meta name="date" content="2014-11-18T22:00:29+0100" >
+		<meta name="date" content="2014-11-19T23:15:23+0100" >
 		<meta name="copyright" content="www.nomsite.fr">
 		<meta name="keywords" content="">
 		<meta name="description" content="Site de sondages de l'IUT informatique de Dijon">
@@ -30,8 +30,9 @@
 <div style="height : 100%;">
 		<div class="contenupage">
 			<div class="descriptionprof">
-				Bonjour professeur .
-				<img src="../images/iut-dijon.png" alt="">
+				Bonjour professeur 
+				<img src="../images/iut-dijon.png" alt="Logo iut">
+				<form action="index.php"><input type="submit" value="Déconnecter"></form>
 			</div>
 			<div class="contenu">
 				<div class="historique">
@@ -39,7 +40,7 @@
 					
 					<table style="background-color:#F3F3F3; margin-left: 20px;"> 
 						<tr>
-							<td>Question</td><td><img src="modifier.png" width="15" height="15" alt=""></td><td><img src="delete.png" width="15" height="15" alt=""></td>
+							<td>"Quelle commande SQL permet... ?"</td><td><img onclick="modifier()" src="modifier.png" width="15" height="15" alt=""></td><td><img onclick="supprimer()" src="delete.png" width="15" height="15" alt=""></td>
 						</tr>
 					</table>
 					
@@ -73,3 +74,16 @@
 </body>
 
 </html>
+
+<script type="text/javascript">
+
+	function modifier(id)
+	{
+		window.location.assign("trait_mod.php?animauxlist="+id);
+	}	
+	
+	function supprimer(id)
+	{
+		window.location.assign("trait_sup.php?animauxlist="+id);
+	}	
+</script>
