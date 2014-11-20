@@ -8,7 +8,7 @@
 		<link rel="shortcut icon" type="image/x-icon" href="../images/iut-dijon.jpg" />
 		<meta name="generator" content="Bluefish 2.2.6" >
 		<meta name="author" content="elodie" >
-		<meta name="date" content="2014-11-20T12:22:43+0100" >
+		<meta name="date" content="2014-11-20T13:22:42+0100" >
 		<meta name="copyright" content="www.nomsite.fr">
 		<meta name="keywords" content="">
 		<meta name="description" content="Site de sondages de l'IUT informatique de Dijon">
@@ -39,24 +39,27 @@
 			
 			<h2>Historique</h2>
 			
-			<table class="table_historique">
-				<th style="width: 94%;">Question</th><th style="width: 6%;"></th>
-				<tr>
-					<td>"Quelle requete ... ?"</td>
-					<td>
-						<img class="icone" class="bulle" onclick="modifier(id)" src="modifier.png" alt="Modifier">
-						<img class="icone" class="bulle" onclick="supprimer(id)" src="delete.png" alt="Supprimer">
-					</td>
-								
-				</tr>			
-				<tr>
-					<td>"Comment s'appelle... ?"</td>
-					<td>
-						<img class="icone" src="modifier.png" alt="Modifier">
-						<img class="icone"src="delete.png" alt="Supprimer">
-					</td>	
-				</tr>
-			</table>
+			<div style=" height: 200px; overflow-y:scroll;">
+				<table class="table_historique">
+					<th style="width: 94%;">Question</th><th style="width: 6%;"></th>
+					<tr>
+						<td>"Quelle requete ... ?"</td>
+						<td>
+							<img class="icone" class="bulle" onclick="modifier(id)" src="modifier.png" alt="Modifier">
+							<img class="icone" class="bulle" onclick="supprimer(id)" src="delete.png" alt="Supprimer">
+						</td>
+									
+					</tr>			
+					<tr>
+						<td>"Comment s'appelle... ?"</td>
+						<td>
+							<img class="icone" src="modifier.png" alt="Modifier">
+							<img class="icone"src="delete.png" alt="Supprimer">
+						</td>	
+					</tr>
+				</table>			
+			</div>
+
 						
 		</td>
 		
