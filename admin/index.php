@@ -8,7 +8,7 @@
 		<link rel="shortcut icon" type="image/x-icon" href="../images/iut-dijon.jpg" />
 		<meta name="generator" content="Bluefish 2.2.6" >
 		<meta name="author" content="elodie" >
-		<meta name="date" content="2014-11-20T10:34:28+0100" >
+		<meta name="date" content="2014-11-20T11:20:58+0100" >
 		<meta name="copyright" content="www.nomsite.fr">
 		<meta name="keywords" content="">
 		<meta name="description" content="Site de sondages de l'IUT informatique de Dijon">
@@ -25,34 +25,36 @@
 
 <body>
 
-<div style="height: 100%;">
-		<div class="contenupage">
-			<div class="descriptionprof">
-				Authentification
-				<img src="../images/iut-dijon.png" alt="">
-			</div>
-			<div class="contenu" id="contenu">
-				<div>
-					Identifiez vous.
-					<form method="POST" action="interface.php">
-						<label>Identifiant :</label> 
-							<input type="text" name="identifiant" id="identifiant"> <br>
-						<label>Mot de passe :</label> 
-							<input type="password" name="mdp" id="mdp">	<br>
-						<input type="submit" name="connexion" value="Connexion"> <br>				
-					</form>
-					<a href="mdp_forget.php">Mot de passe oublié ?</a> <a href="inscription.php">Pas encore inscrit ?</a>
+<table>
+	<th class="descriptionprof">
+		<h1>Authentification</h1>
+	</th>
+	<th class="descriptionprof">	
+		<img src="../images/iut-dijon.png" alt="">
+	</th>
+	
+	<tr class="contenupage">
+		<td colspan="2">
+			<h2>Identifiez vous</h2>
 					
-				</div>
-				<div>
+			<form method="POST" action="interface.php" class="form_auth">
+				<label>Identifiant :</label> 
+				<input type="text" name="identifiant" id="identifiant"> <br>
+				<label>Mot de passe :</label> 
+				<input type="password" name="mdp" id="mdp">	<br>
+				<input type="submit" name="connexion" value="Connexion"> <br>				
+			</form>
+			
+			<a href="mdp_forget.php">Mot de passe oublié ?</a> <a href="inscription.php">Pas encore inscrit ?</a>
 
-				</div>
-			</div>
-		</div>
-	<div class="piedpage">
-		Développé par le groupe AlphaDelta
-	</div>
-</div>
+		</td>
+	</tr>
+	<tr>
+		<td class="piedpage" colspan="2">Nous contacter</td>
+	</tr>
+
+</table>
+
 </body>
 
 </html>

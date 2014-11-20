@@ -8,7 +8,7 @@
 		<link rel="shortcut icon" type="image/x-icon" href="../images/iut-dijon.jpg" />
 		<meta name="generator" content="Bluefish 2.2.6" >
 		<meta name="author" content="elodie" >
-		<meta name="date" content="2014-11-19T23:15:23+0100" >
+		<meta name="date" content="2014-11-20T12:22:43+0100" >
 		<meta name="copyright" content="www.nomsite.fr">
 		<meta name="keywords" content="">
 		<meta name="description" content="Site de sondages de l'IUT informatique de Dijon">
@@ -25,51 +25,65 @@
 	
 <body>
 
-
-
-<div style="height : 100%;">
-		<div class="contenupage">
-			<div class="descriptionprof">
-				Bonjour professeur 
-				<img src="../images/iut-dijon.png" alt="Logo iut">
-				<form action="index.php"><input type="submit" value="Déconnecter"></form>
-			</div>
-			<div class="contenu">
-				<div class="historique">
-					<h1>Questions déja posées</h1>
+<table>
+	<th class="descriptionprof">
+		<h1>Bonjour professeur</h1>
+	</th>
+	<th class="descriptionprof">	
+		<img src="../images/iut-dijon.png" alt="">
+	</th>
+	
+	<tr class="contenupage">
+		<td>
+			<form action="index.php" style="text-align : left;"><input type="submit" value="Déconnecter"></form>
+			
+			<h2>Historique</h2>
+			
+			<table class="table_historique">
+				<th style="width: 94%;">Question</th><th style="width: 6%;"></th>
+				<tr>
+					<td>"Quelle requete ... ?"</td>
+					<td>
+						<img class="icone" class="bulle" onclick="modifier(id)" src="modifier.png" alt="Modifier">
+						<img class="icone" class="bulle" onclick="supprimer(id)" src="delete.png" alt="Supprimer">
+					</td>
+								
+				</tr>			
+				<tr>
+					<td>"Comment s'appelle... ?"</td>
+					<td>
+						<img class="icone" src="modifier.png" alt="Modifier">
+						<img class="icone"src="delete.png" alt="Supprimer">
+					</td>	
+				</tr>
+			</table>
+						
+		</td>
+		
+		<td class="publier">
+			Publier une nouvelle question
 					
-					<table style="background-color:#F3F3F3; margin-left: 20px;"> 
-						<tr>
-							<td>"Quelle commande SQL permet... ?"</td><td><img onclick="modifier()" src="modifier.png" width="15" height="15" alt=""></td><td><img onclick="supprimer()" src="delete.png" width="15" height="15" alt=""></td>
-						</tr>
-					</table>
-					
-				</div>
-				
-				<div class="newquestion">
-					Publier une nouvelle question
-					
-					<form>
-						<label>Question :</label>
-						<textarea></textarea> <br>
-						<label>Réponse 1 :</label>
-						<input type="text" id="rep1" name="rep1"> <br>
-						<label>Réponse 2 :</label>
-						<input type="text" id="rep2" name="rep2"> <br>
-						<label>Réponse 3 :</label>
-						<input type="text" id="rep3" name="rep3"> <br>
-						<label>Réponse 4 :</label>
-						<input type="text" id="rep4" name="rep4"> <br>
-						<input type="submit" id="poster" name="poster" value="Poster">
-					</form>		
-				</div>
-			</div>
-		</div>
-	<div class="piedpage">
-		Développé par le groupe AlphaDelta
-	</div>
-</div>
+				<form  style="text-align: left; margin: 3px;">
+					<label>Question :</label>
+					<textarea cols="30" rows="10" style="resize:none;"></textarea> <br>
+					<label>Réponse 1 :</label>
+					<input type="text" id="rep1" name="rep1"> <br>
+					<label>Réponse 2 :</label>
+					<input type="text" id="rep2" name="rep2"> <br>
+					<label>Réponse 3 :</label>
+					<input type="text" id="rep3" name="rep3"> <br>
+					<label>Réponse 4 :</label>
+					<input type="text" id="rep4" name="rep4"> <br>
+					<input type="submit" id="poster" name="poster" value="Poster">
+				</form>	
+		</td>
+		
+	</tr>
+	<tr>
+		<td class="piedpage" colspan="2">Nous contacter</td>
+	</tr>
 
+</table>
 
 </body>
 

@@ -8,7 +8,7 @@
 		<link rel="shortcut icon" type="image/x-icon" href="../images/iut-dijon.jpg" />
 		<meta name="generator" content="Bluefish 2.2.6" >
 		<meta name="author" content="elodie" >
-		<meta name="date" content="2014-11-19T17:40:17+0100" >
+		<meta name="date" content="2014-11-20T12:27:40+0100" >
 		<meta name="copyright" content="www.nomsite.fr">
 		<meta name="keywords" content="">
 		<meta name="description" content="Site de sondages de l'IUT informatique de Dijon">
@@ -25,22 +25,34 @@
 
 <body>
 
-	<div style="height : 100%;">
-		<div class="contenupage">
-			<div class="descriptionprof">
-				Oubli de mot de passe
-				<img src="../images/iut-dijon.png" alt="">
-			</div>
-			<div class="contenu">
-				<div>
-					
-				</div>
-			</div>
-		</div>
-	<div class="piedpage">
-		Développé par le groupe AlphaDelta
-	</div>
-	</div>
+<table>
+	<th class="descriptionprof">
+		<h1>Oubli de mot de passe ?</h1>
+	</th>
+	<th class="descriptionprof">	
+		<img src="../images/iut-dijon.png" alt="">
+	</th>
+	
+	<tr class="contenupage">
+		<td colspan="2">
+			<p>Merci de saisir votre adresse e-mail:</p>
+				
+				<form method="POST" action="trait_inscription.php" target="_blank" style="text-align: left;">
+					<label>Adresse mail : </label> <input type="email" name="email" required> <br>
+					<input type="Submit" value="Envoyer" id="sinscrire">
+				</form>
+			<p>
+				Un mail va vous être envoyé avec votre identifiant et mot de passe. Conservez-les bien !			
+			</p>	
+		</td>
+		
+	</tr>
+	<tr>
+		<td class="piedpage" colspan="2">Nous contacter</td>
+	</tr>
+
+</table>
+
 
 </body>
 </html>

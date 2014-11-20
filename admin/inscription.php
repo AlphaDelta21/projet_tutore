@@ -8,7 +8,7 @@
 		<link rel="shortcut icon" type="image/x-icon" href="../images/iut-dijon.jpg" />
 		<meta name="generator" content="Bluefish 2.2.6" >
 		<meta name="author" content="elodie" >
-		<meta name="date" content="2014-11-19T18:08:05+0100" >
+		<meta name="date" content="2014-11-20T12:24:16+0100" >
 		<meta name="copyright" content="www.nomsite.fr">
 		<meta name="keywords" content="">
 		<meta name="description" content="Site de sondages de l'IUT informatique de Dijon">
@@ -25,16 +25,17 @@
 
 <body>
 
-	<div style="height : 100%;">
-		<div class="contenupage">
-			<div class="descriptionprof">
-				Inscription
-				<img src="../images/iut-dijon.png" alt="">
-			</div>
-			<div class="contenu">
-				<div>
-				
-				<p>Pas encore inscrit ? Merci de remplir le formulaire ci-dessous :</p>
+<table>
+	<th class="descriptionprof">
+		<h1>Inscription</h1>
+	</th>
+	<th class="descriptionprof">	
+		<img src="../images/iut-dijon.png" alt="">
+	</th>
+	
+	<tr class="contenupage">
+		<td colspan="2">
+			<p>Pas encore inscrit ? Merci de remplir le formulaire ci-dessous :</p>
 				
 				<form method="POST" action="trait_inscription.php" target="_blank" style="text-align: left;">
 					<label>NOM :</label> <input type="text" name="nom" autofocus required> <br>
@@ -44,15 +45,15 @@
 					<label>Mot de passe :</label> <input type="password" name="mdp" required> <br>
 					<input type="Submit" value="S'inscrire" id="sinscrire">
 				</form>
-				
-				 	
-				</div>
-			</div>
-		</div>
-		<div class="piedpage">
-			Développé par le groupe AlphaDelta
-		</div>
-	</div>
+		</td>
+		
+	</tr>
+	<tr>
+		<td class="piedpage" colspan="2">Nous contacter</td>
+	</tr>
+
+</table>
+
 
 </body>
 </html>
