@@ -8,7 +8,7 @@
 		<link rel="shortcut icon" type="image/x-icon" href="../images/iut-dijon.jpg" />
 		<meta name="generator" content="Bluefish 2.2.6" >
 		<meta name="author" content="elodie" >
-		<meta name="date" content="2014-11-20T10:34:28+0100" >
+		<meta name="date" content="2014-11-19T18:12:25+0100" >
 		<meta name="copyright" content="www.nomsite.fr">
 		<meta name="keywords" content="">
 		<meta name="description" content="Site de sondages de l'IUT informatique de Dijon">
@@ -25,34 +25,34 @@
 
 <body>
 
-<div style="height: 100%;">
+<div style="height : 100%;">
 		<div class="contenupage">
 			<div class="descriptionprof">
-				Authentification
+				Validation de l'inscription
 				<img src="../images/iut-dijon.png" alt="">
 			</div>
-			<div class="contenu" id="contenu">
+			<div class="contenu">
 				<div>
-					Identifiez vous.
-					<form method="POST" action="interface.php">
-						<label>Identifiant :</label> 
-							<input type="text" name="identifiant" id="identifiant"> <br>
-						<label>Mot de passe :</label> 
-							<input type="password" name="mdp" id="mdp">	<br>
-						<input type="submit" name="connexion" value="Connexion"> <br>				
-					</form>
-					<a href="mdp_forget.php">Mot de passe oublié ?</a> <a href="inscription.php">Pas encore inscrit ?</a>
+				
+				<?php
+					$nom = $_POST['nom'];
+					$prenom = $_POST['prenom'];
+					$email = $_POST['email'];
+					$identifiant = sha1 ($_POST['identifiant']);
+					$mdp = sha1 ($_POST['mdp']);
+				
+					echo $nom.'<br>';
 					
-				</div>
-				<div>
-
+				?>
+				
+				 	<a href="index.php">Retour à la page d'acceuil</a>
 				</div>
 			</div>
 		</div>
-	<div class="piedpage">
-		Développé par le groupe AlphaDelta
+		<div class="piedpage">
+			Développé par le groupe AlphaDelta
+		</div>
 	</div>
-</div>
-</body>
 
+</body>
 </html>
