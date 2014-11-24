@@ -4,16 +4,15 @@ class Question
 {
 	private $bdd;
 	
-	public function __construct()
+	public function __construct($asAdmin)
 	{
-		$asAdmin=true;
 		
 		try 
 		{
 			if($asAdmin)
-				$bdd = new PDO('mysql:host=sql-pedago;dbname=iq-kidioui','iq-kidioui_adm','TuD8R778');
+				$this->bdd = new PDO('mysql:host=sql-pedago;dbname=iq-kidioui','iq-kidioui_adm','TuD8R778');
 			else
-				$bdd = new PDO('mysql:host=sql-pedago;dbname=iq-kidioui','iq-kidioui','VaC4tD85');
+				$this->bdd = new PDO('mysql:host=sql-pedago;dbname=iq-kidioui','iq-kidioui','VaC4tD85');
 		}	
 		catch(Exception $e)
 		{
@@ -23,21 +22,9 @@ class Question
 	
 	public function ajouter($question, $prof, $code,  $arrayReponse)
 	{
-		try 
-		{
-			if($asAdmin)
-				$bdd = new PDO('mysql:host=sql-pedago;dbname=iq-kidioui','iq-kidioui_adm','TuD8R778');
-			else
-				$bdd = new PDO('mysql:host=sql-pedago;dbname=iq-kidioui','iq-kidioui','VaC4tD85');
-		}	
-		catch(Exception $e)
-		{
-			die('Erreur : '.$e->getMessage());
-		}
-		
 		echo("Bonjour");
 		
-		$requete= $bdd->prepare('
+		$requete= $this->bdd->prepare('
 		INSERT INTO question(id_prof, nomQuestion, code)
 		VALUES(:id_prof, :nomQuestion, :code)');
 		
@@ -46,7 +33,7 @@ class Question
 			'nomQuestion' => $question,
 			'code' => $code));
 			
-		$requete=$bdd->prepare('
+		$requete=$this->bdd->prepare('
 		SELECT id_question
 		FROM question
 		WHERE nomQuestion = :nomQuestion');
@@ -61,7 +48,7 @@ class Question
 		for($i=0;$i<count($arrayReponse); $i++)
 		{
 									
-			$requete2 = $bdd->prepare('
+			$requete2 = $this->bdd->prepare('
 			INSERT INTO reponse(id_question, nomReponse)
 			VALUES(:id_question, :nomReponse)');
 			
@@ -75,19 +62,8 @@ class Question
 	
 	public function supprimer($question)
 	{
-		try 
-		{
-			if($asAdmin)
-				$bdd = new PDO('mysql:host=sql-pedago;dbname=iq-kidioui','iq-kidioui_adm','TuD8R778');
-			else
-				$bdd = new PDO('mysql:host=sql-pedago;dbname=iq-kidioui','iq-kidioui','VaC4tD85');
-		}	
-		catch(Exception $e)
-		{
-			die('Erreur : '.$e->getMessage());
-		}
-	
-		$requete =$bdd->prepare('
+
+		$requete =$this->bdd->prepare('
 		SELECT id_question 
 		FROM question
 		WHERE nomQuestion = :nomQuestion');
@@ -96,29 +72,18 @@ class Question
 		
 		$idQuestion = $requete->fetch();
 		
-		$deleteReponse=$bdd->exec('DELETE FROM reponse
+		$deleteReponse=$this->bdd->exec('DELETE FROM reponse
 		WHERE id_question = '. $idQuestion[0]);
 		
-		$deleteQuestion=$bdd->exec('DELETE FROM question
+		$deleteQuestion=$this->bdd->exec('DELETE FROM question
 		WHERE id_question = '. $idQuestion[0]);
 		
 	}
 	
 	public function modifier($question, $arrayReponse, $newQuestion)
 	{
-	try 
-		{
-			if($asAdmin)
-				$bdd = new PDO('mysql:host=sql-pedago;dbname=iq-kidioui','iq-kidioui_adm','TuD8R778');
-			else
-				$bdd = new PDO('mysql:host=sql-pedago;dbname=iq-kidioui','iq-kidioui','VaC4tD85');
-		}	
-		catch(Exception $e)
-		{
-			die('Erreur : '.$e->getMessage());
-		}
 	
-		$requete =$bdd->prepare('
+		$requete =$this->bdd->prepare('
 		SELECT id_question 
 		FROM question
 		WHERE nomQuestion = :nomQuestion');
@@ -127,7 +92,7 @@ class Question
 		
 		$idQuestion = $requete->fetch();
 			
-		$requete3 = $bdd->prepare('SELECT id_reponse FROM reponse WHERE id_question = :question');
+		$requete3 = $this->bdd->prepare('SELECT id_reponse FROM reponse WHERE id_question = :question');
 		
 		$requete3->execute(array('question' => $idQuestion[0]));
 		
@@ -144,13 +109,13 @@ class Question
 			
 		for($i=0;$i<count($arrayReponse);$i++)
 		{
-			$updateReponse=$bdd->prepare('UPDATE reponse
+			$updateReponse=$this->bdd->prepare('UPDATE reponse
 			SET nomReponse = :reponse WHERE id_reponse = '. $idReponse[$i]);
 		
 			$updateReponse->execute(array('reponse' => $arrayReponse[$i]));
 		}
 		
-		$updateQuestion=$bdd->prepare('UPDATE question
+		$updateQuestion=$this->bdd->prepare('UPDATE question
 		SET nomQuestion = :question WHERE id_question = '. $idQuestion[0]);
 		
 		$updateQuestion->execute(array('question' => $newQuestion));
@@ -160,6 +125,31 @@ class Question
 	public function publier()
 	{
 	
+	}
+	
+	public function getId($question)
+	{
+	
+	}
+	
+	public function getQuestion($id)
+	{
+	}
+	
+	public function getListeQuestion()
+	{
+	}
+	
+	public function getCode($id)
+	{
+	}
+	
+	public function getIdProf($id)
+	{
+	}
+	
+	public function getReponse($id)
+	{
 	}
 }
 
