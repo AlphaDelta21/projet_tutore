@@ -7,7 +7,7 @@
 
 <body>
 Equipe de développement ALPHA-BETA :<br>
-<table width="298" border="1">
+<table style="font-size:2em;" width="298" border="1">
   <tbody>
     <tr>
       <th width="115" scope="row">Dumas Elodie</th>

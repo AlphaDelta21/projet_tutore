@@ -10,43 +10,51 @@ body
 	background-color:rgb(230,230,230);	
 }
 
-.div_centre
+/* ------------------------------------- */
+
+
+.div_img
 {
-	width:80%;
-	height:100%;
-	margin:auto;
-	border:4px grey solid;
-	border-radius:3px;
-	background-image:linear-gradient(#9C6127, #EBCDB0);	
-	box-shadow:15px 15px 10px #888888;
+	width:100%;
+	text-align:center;	
 }
 
 
-
-.div_connexion
+.form_page1
 {
-	border:2px black solid;
-	border-radius:15px;
-	text-align:center;
-	width:40%;
-	height:auto;
-	margin-left:auto;
-	margin-right:auto;
-	margin-top:auto;		
+	text-align:center;	
 }
 
-.div_choix
+.img_iut
 {
-	border:2px black solid;
-	border-radius:15px;
-	text-align:center;
-	width:40%;
-	height:auto;
-	margin-left:auto;
-	margin-right:auto;
-	margin-top:20%;	
+	width:20%;
+	height:20%;
+	box-shadow:#FFFFFF;
 }
 
+.p_code
+{
+	/*font-weight: bold;*/
+	font-family:Verdana;
+	text-align:center;	
+	font-size:1.5em;
+}
+
+.txt_code
+{
+	width:10em;
+	height:2em;	
+	margin:0;
+}
+
+
+/* ------------------------------------- */
+
+.radio
+{
+	width:1.7em;
+	height:1.7em;
+}
 
 /* ------------------------------------- */
 
@@ -58,24 +66,15 @@ body
 	height:4px;
 }
 
-.bouton_connexion
+/*.bouton_connexion              --à utiliser pour bouton vote
 {
 	width:70%;
 	height:15%;
 	font-size: 1vw;
 	text-align:center;
 	width:9.7vw;
-}
+}*/
 
-.p_connexion
-{
-
-}
-
-.div_footer
-{
-	text-align:right;	
-}
 
 h1
 {
@@ -88,4 +87,22 @@ h3
 	vertical-align:top;
 	font-size:2vw;
 	margin:0px 0px 5px 0px;
+}
+
+
+/************************footer************************/
+.div_footer
+{
+	width:100%;
+	position:absolute;	
+	bottom:0px;
+	text-align:right;
+}
+
+.p_footer
+{
+	margin:0;
+	padding:0;
+	font-size:1em;
+		
 }
