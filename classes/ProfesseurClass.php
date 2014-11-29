@@ -19,21 +19,6 @@ class Professeur
 		}
 	}
 	
-	public function mail_to($nom, $prenom, $email, $identifiant, $mdp)
-	{
-		$to      = $email;
-		$subject = 'Inscription site de sondage KiDiOui';
-		$message = 'Bonjour';
-		$headers = 'From: quentin.moreaux8@gmail.com' . "\r\n" .
-			'Reply-To: quentin.moreaux8@gmail.com' . "\r\n";
-
-
-		
-		if(mail($to, $subject, $message, $headers))
-			echo("Un mail vous a été envoyé");
-		else
-			echo("Erreur");
-	}
 	
 	public function inscription($nom, $prenom, $email, $identifiant, $mdp)
 	{
@@ -59,6 +44,17 @@ class Professeur
 			return true;
 		else
 			return false;
+	}
+	
+	public function getId($nom)
+	{
+		$requete = $this->bdd->prepare('SELECT id_prof FROM professeur WHERE nom = :nom');
+		
+		$requete->execute(array('nom' => $nom));
+		
+		$result = $requete->fetch();
+		
+		return $result[0];
 	}
 	
 	public function getPrenom($id)
