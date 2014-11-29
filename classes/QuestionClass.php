@@ -129,27 +129,77 @@ class Question
 	
 	public function getId($question)
 	{
-	
+		$requete = $this->bdd->prepare('SELECT id_question FROM question WHERE nomQuestion = :question');
+		
+		$requete->execute(array('question' => $question));
+		
+		$result = $requete->fetch();
+		
+		return $result[0];
 	}
 	
 	public function getQuestion($id)
 	{
+		$requete = $this->bdd->prepare('SELECT nomQuestion FROM question WHERE id_question = :id');
+		
+		$requete->execute(array('id' => $id));
+		
+		$result = $requete->fetch();
+		
+		return $result[0];
 	}
 	
 	public function getListeQuestion()
 	{
+		$requete = $this->bdd->query('SELECT nomQuestion FROM question');
+				
+		
+		while($donnees=$requete->fetch(PDO::FETCH_NUM))
+		{
+			foreach($donnees as $valeur)
+				$array[] = $valeur;
+		}
+
+
+		return $array;
 	}
 	
 	public function getCode($id)
 	{
+		$requete = $this->bdd->prepare('SELECT code FROM question WHERE id_question = :id');
+		
+		$requete->execute(array('id' => $id));
+		
+		$result = $requete->fetch();
+		
+		return $result[0];
 	}
 	
 	public function getIdProf($id)
 	{
+		$requete = $this->bdd->prepare('SELECT id_prof FROM question WHERE id_question = :id');
+		
+		$requete->execute(array('id' => $id));
+		
+		$result = $requete->fetch();
+		
+		return $result[0];
 	}
 	
 	public function getReponse($id)
 	{
+		$requete = $this->bdd->prepare('SELECT nomReponse FROM reponse WHERE id_question = :id');
+		
+		$requete->execute(array('id' => $id));				
+		
+		while($donnees=$requete->fetch(PDO::FETCH_NUM))
+		{
+			foreach($donnees as $valeur)
+				$array[] = $valeur;
+		}
+
+
+		return $array;
 	}
 }
 
