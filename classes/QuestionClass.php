@@ -35,7 +35,6 @@ class Question
 			die('Erreur : '.$e->getMessage());
 		}
 		
-		echo("Bonjour");
 		
 		$requete= $bdd->prepare('
 		INSERT INTO question(id_prof, nomQuestion, code)

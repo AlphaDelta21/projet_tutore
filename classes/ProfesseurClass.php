@@ -4,9 +4,9 @@ class Professeur
 {
 	private $connection;
 	
-	public function __construct($asAdmin)
+	public function __construct()
 	{
-		try 
+		/*try 
 		{
 			if($asAdmin)
 				$bdd = new PDO('mysql:host=sql-pedago;dbname=iq-kidioui','iq-kidioui_adm','TuD8R778');
@@ -16,7 +16,7 @@ class Professeur
 		catch(Exception $e)
 		{
 			die('Erreur : '.$e->getMessage());
-		}
+		}*/
 	}
 	
 	public function mail_to($nom, $prenom, $email, $identifiant, $mdp)
@@ -24,8 +24,7 @@ class Professeur
 		$to      = $email;
 		$subject = 'Inscription site de sondage KiDiOui';
 		$message = 'Bonjour';
-		$headers = 'From: quentin.moreaux8@gmail.com' . "\r\n" .
-			'Reply-To: quentin.moreaux8@gmail.com' . "\r\n";
+		$headers = 'From: quentin.moreaux8@gmail.com';
 
 
 		
@@ -37,7 +36,20 @@ class Professeur
 	
 	public function inscription($nom, $prenom, $email, $identifiant, $mdp)
 	{
-		$requete = $connection->prepare('INSERT INTO professeur
+
+		try 
+		{
+			if($asAdmin)
+				$bdd = new PDO('mysql:host=sql-pedago;dbname=iq-kidioui','iq-kidioui_adm','TuD8R778');
+			else
+				$bdd = new PDO('mysql:host=sql-pedago;dbname=iq-kidioui','iq-kidioui','VaC4tD85');
+		}	
+		catch(Exception $e)
+		{
+			die('Erreur : '.$e->getMessage());
+		}
+
+		$requete = $bdd->prepare('INSERT INTO professeur
 		(nom, prenom, email, identifiant, mdp)
 		VALUES(:nom, :prenom, :email, :identifiant, :mdp)');
 		

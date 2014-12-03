@@ -98,8 +98,8 @@ img
 
 .icone
 {
-	min-width: 50%;
-	max-width: 50%;
+	min-width: 25px;
+	max-width: 25px;
 }
 
 .newquestion
@@ -129,6 +129,12 @@ img
 	border-left: 3px dotted #CA0062;
 }
 
+.structure
+{
+	border-collapse: collapse;
+	margin: 0px;
+}
+
 table
 {
 	width: 100%;
@@ -138,7 +144,7 @@ table
 
 .table_historique
 {
-	width: 90%;
+	width: 88%;
 	height: 10%;
 	text-align: justify;
 	padding: 3px;

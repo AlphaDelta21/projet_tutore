@@ -1,3 +1,9 @@
+<?php
+	session_start();
+	require_once '../classes/ProfesseurClass.php';
+	require_once '../classes/QuestionClass.php';
+?>
+
 <!DOCTYPE html>
 <html lang='fr'>
 
@@ -8,7 +14,7 @@
 		<link rel="shortcut icon" type="image/x-icon" href="../images/iut-dijon.jpg" />
 		<meta name="generator" content="Bluefish 2.2.6" >
 		<meta name="author" content="elodie" >
-		<meta name="date" content="2014-11-20T11:20:58+0100" >
+		<meta name="date" content="2014-11-24T18:32:53+0100" >
 		<meta name="copyright" content="www.nomsite.fr">
 		<meta name="keywords" content="">
 		<meta name="description" content="Site de sondages de l'IUT informatique de Dijon">
@@ -18,11 +24,6 @@
 		<meta http-equiv="expires" content="0">
 	</head>
 	
-	<?php
-		require_once '../developpement/bdd/question.class.php';
-		require_once '../developpement/bdd/bdd.class.php';
-	?>
-
 <body>
 
 <table>
