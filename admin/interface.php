@@ -6,7 +6,7 @@
 	$identifiant = $_POST['identifiant'];
 	$mdp = $_POST['mdp'];
 	
-	$prof = new Professeur();
+	$prof = new Professeur(TRUE);
 	
 ?>
 
@@ -20,7 +20,7 @@
 			<link rel="shortcut icon" type="image/x-icon" href="../images/iut-dijon.jpg" />
 			<meta name="generator" content="Bluefish 2.2.6" >
 			<meta name="author" content="elodie" >
-			<meta name="date" content="2014-11-24T19:46:03+0100" >
+			<meta name="date" content="2014-12-03T20:35:39+0100" >
 			<meta name="copyright" content="www.nomsite.fr">
 			<meta name="keywords" content="">
 			<meta name="description" content="Site de sondages de l'IUT informatique de Dijon">
@@ -36,7 +36,7 @@
 	
 /*	if($prof->authentification($identifiant, $mdp) == TRUE)
 	{*/
-		$_SESSION['nom'] = $identifiant;
+		$_SESSION['nom'] = $prof->getNom();
 		//$_SESSION['id'] = $;
 	
 ?>

@@ -7,7 +7,7 @@
 	
 	if ((isset($identifiant != '')) && (isset($mdp != '')))
 	{
-		$prof = new Professeur;
+		$prof = new Professeur(TRUE);
 		
 		if($prof->authentification($identifiant, $mdp) == TRUE) 
 		{	
