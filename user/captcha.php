@@ -6,6 +6,23 @@
 
 session_start();
 
+function RandomCouleur()
+{
+	$r=dechex(rand(0,255));
+	$v=dechex(rand(0,255));
+	$b=dechex(rand(0,255));
+	 
+	return "#".$r.$v.$b;
+	
+}
+
+function genNuanceOfBlue() 
+{
+	$red = Math.floor(Math.random()*255);
+	$green = Math.floor(Math.random()*255);
+	return $color = '0x'+red.toString(16)+green.toString(16)+'ff';
+}
+
 function nombre($n)
 {
 	return str_pad(mt_rand(0,pow(10,$n)-1),$n,'0',STR_PAD_LEFT);
@@ -28,21 +45,8 @@ function image($mot)
 	
 	$blanc = imagecolorallocate($img, 255, 255, 255); 
 	$noir = imagecolorallocate($img, 0, 0, 0);
+
 	
-	$couleur = array(
-		imagecolorallocate($img, 0x99, 0x00, 0x66),
-		imagecolorallocate($img, 0xCC, 0x00, 0x00),
-		imagecolorallocate($img, 0x00, 0x00, 0xCC),
-		imagecolorallocate($img, 0x00, 0xCC, 0x00),
-		imagecolorallocate($img, 0x66, 0x99, 0xCC),
-		imagecolorallocate($img, 0x00, 0x66, 0x99),
-		imagecolorallocate($img, 0x05, 0x05, 0x05),
-		imagecolorallocate($img, 0xBB, 0x88, 0x77),
-		imagecolorallocate($img, 183, 183, 183),
-		imagecolorallocate($img, 1, 248, 56),
-		imagecolorallocate($img, 240, 247, 2),
-		imagecolorallocate($img, 7, 14, 241),
-		imagecolorallocate($img, 0, 236, 249));
 	
 	
 	$milieuHauteur = ($hauteur+$marge)/5;
@@ -54,18 +58,19 @@ function image($mot)
 	
 	// Insertion lettre par lettre du mot. Ainsi chaque lettre peut avoir une couleur aléatoire.
 	for($i=0;$i<strlen($mot);$i++)
-	{
+	{		
+		$color = imagecolorallocate ( $img , rand(0,255) , rand(0,255) , rand(0,255) );
+		
 		
 		$nbAlea = rand ( 3 , 10 );
 		$milieuHauteur = ($hauteur+$marge)/$nbAlea;// Centrage en hauteur du texte
 		
-		imagestring($img, 6, $index , $milieuHauteur, $mot[$i], $couleur[array_rand($couleur)]);
-    	$index+=$fontsize; // On se déplace sur x de la taille d'un caractère
-		
-		//imagerotate ( $img , $angle , 0 );
+		imagestring($img, 6, $index , $milieuHauteur, $mot[$i], $color);
+    	$index+=$fontsize; // On se déplace sur x de la taille d'un caractère		
     }
 	
-	imagerectangle($img, 1, 1, $largeur+$marge-1, $hauteur+$marge-1, $couleur[array_rand($couleur)]); // La bordure
+	$color = imagecolorallocate ( $img , rand(0,255) , rand(0,255) , rand(0,255) );
+	imagerectangle($img, 1, 1, $largeur+$marge-1, $hauteur+$marge-1, $color); // La bordure
 	
 	imagepng($img);
 	
