@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>ALPHA - BETA</title>
+<title>ALPHA - DELTA</title>
 </head>
 
 <body>

@@ -6,8 +6,11 @@
 </head>
 
 <body>
+
 <div class="div_img">
-	<img src="images/iut-dijon.png" style="width:10%;" class="img_iut"  alt=""/>
+	
+    <img src="images/student.png" class="img_iut"  alt=""/>
+
 
 <?php
 session_start();
@@ -43,7 +46,7 @@ if(isset($_POST['captcha']) && isset($_POST['txt_code']))
 }
 ?>
 
-
+<p class="line_design"> </p>
 
 
 </div>

@@ -7,7 +7,8 @@
 
 <body>
 <div class="div_img">
-	<img src="images/iut-dijon.png" style="width:10%;" class="img_iut"  alt=""/><br>
+	
+    <img src="images/student.png" class="img_iut"  alt=""/>
 
 <?php
 if(isset($_POST['rep']))
@@ -16,7 +17,7 @@ if(isset($_POST['rep']))
 	
 	
 	echo '<p class="p_code">Merci d\'avoir voté, vous avez choisi la réponse :"<i>'.$R.'</i>".</p>';
-	echo '<p class="p_code">Voter professeur vous communiquera la réponse sous peu.</p>';
+	echo '<p class="p_code">Votre professeur vous communiquera la réponse sous peu.</p>';
 }
 else
 {
@@ -26,7 +27,7 @@ else
 <br>
 <a href="index.php"> Retour au menu</a>
 </div>
-
+<p class="line_design"> </p>
 
 
 
