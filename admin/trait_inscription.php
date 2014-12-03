@@ -8,7 +8,7 @@
 		<link rel="shortcut icon" type="image/x-icon" href="../images/iut-dijon.jpg" />
 		<meta name="generator" content="Bluefish 2.2.6" >
 		<meta name="author" content="elodie" >
-		<meta name="date" content="2014-12-03T20:00:49+0100" >
+		<meta name="date" content="2014-12-03T20:12:09+0100" >
 		<meta name="copyright" content="www.nomsite.fr">
 		<meta name="keywords" content="">
 		<meta name="description" content="Site de sondages de l'IUT informatique de Dijon">
@@ -36,13 +36,17 @@
 				<div>
 				
 				<?php
-					$nom = $_POST['nom'];
+				
+					$prof = new Professeur(true);
+					
+ 					$nom = $_POST['nom'];
 					$prenom = $_POST['prenom'];
 					$email = $_POST['email'];
 					$identifiant = sha1 ($_POST['identifiant']);
 					$mdp = sha1 ($_POST['mdp']);
 				
-					echo $nom.'<br>';
+					$prof->inscription($nom, $prenom, $email, $identifiant, $mdp);
+					
 					
 				?>
 				
