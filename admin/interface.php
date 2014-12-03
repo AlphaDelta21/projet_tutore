@@ -20,7 +20,7 @@
 			<link rel="shortcut icon" type="image/x-icon" href="../images/iut-dijon.jpg" />
 			<meta name="generator" content="Bluefish 2.2.6" >
 			<meta name="author" content="elodie" >
-			<meta name="date" content="2014-12-03T20:35:39+0100" >
+			<meta name="date" content="2014-12-03T20:50:58+0100" >
 			<meta name="copyright" content="www.nomsite.fr">
 			<meta name="keywords" content="">
 			<meta name="description" content="Site de sondages de l'IUT informatique de Dijon">
@@ -37,7 +37,7 @@
 /*	if($prof->authentification($identifiant, $mdp) == TRUE)
 	{*/
 		$_SESSION['nom'] = $prof->getNom();
-		//$_SESSION['id'] = $;
+		//$_SESSION['id'] = $prof->getId();
 	
 ?>
 	
@@ -93,9 +93,9 @@
 				<td class="publier">
 					Publier une nouvelle question
 							
-						<form  style="text-align: left; margin: 3px;">
+						<form method="POST" action="trait_new.php" style="text-align: left; margin: 3px;">
 							<label>Question :</label>
-							<textarea cols="30" rows="10" style="resize:none;"></textarea> <br>
+							<textarea cols="30" rows="10" name="question" style="resize:none;"></textarea> <br>
 							<label>Réponse 1 :</label>
 							<input type="text" id="rep1" name="rep1"> <br>
 							<label>Réponse 2 :</label>
@@ -108,7 +108,6 @@
 						</form>	
 				</td>
 			</tr>
-		<!-- <td class="publier"><form  style="text-align: left; margin: 3px;"> -->
 	</table>
 	</td>
 	</tr>
