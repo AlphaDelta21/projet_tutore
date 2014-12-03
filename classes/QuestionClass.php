@@ -22,22 +22,7 @@ class Question
 	
 	public function ajouter($question, $prof, $code,  $arrayReponse)
 	{
-<<<<<<< HEAD
-		try 
-		{
-			if($asAdmin)
-				$bdd = new PDO('mysql:host=sql-pedago;dbname=iq-kidioui','iq-kidioui_adm','TuD8R778');
-			else
-				$bdd = new PDO('mysql:host=sql-pedago;dbname=iq-kidioui','iq-kidioui','VaC4tD85');
-		}	
-		catch(Exception $e)
-		{
-			die('Erreur : '.$e->getMessage());
-		}
-		
-=======
 		echo("Bonjour");
->>>>>>> 020e6c338b9641da96a1b9ee3ecb63f509924c96
 		
 		$requete= $this->bdd->prepare('
 		INSERT INTO question(id_prof, nomQuestion, code)
