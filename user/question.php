@@ -37,16 +37,16 @@ if(isset($_POST['captcha']) && isset($_POST['txt_code']))
 	else
 	{
 		echo '
+		<img  src="images/stop.png" alt="stop" />
 		<br>
 		Le captcha n\'a pas été correctement tapé, veuillez recommencer.
 		<br>
 		<a href="index.php"> Retour au menu</a>';
-		
 	}
 }
 ?>
 
-<p class="line_design"> </p>
+<hr class="line_design">
 
 
 </div>

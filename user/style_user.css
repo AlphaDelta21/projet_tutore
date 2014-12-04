@@ -22,6 +22,11 @@ body
 
 
 
+#refresh_button
+{
+	cursor:pointer;	
+}
+
 .div_img
 {
 	width:100%;
@@ -141,11 +146,16 @@ h3
 
 .line_design
 {
+	
 	color:#343434;
 	box-shadow: 0px 0px 10px #343434;
-	border-radius: 10px;
+	
 	border: 1px solid #656565;
 	background:#cfcfcf;	
+	/*width:100%;*/
+	text-align:auto;
+	/*border-radius: 20px 20px 20px 20px;*/
+	margin-top:15px;
 }
 
 .bouton_design

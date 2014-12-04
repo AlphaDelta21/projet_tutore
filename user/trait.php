@@ -21,13 +21,17 @@ if(isset($_POST['rep']))
 }
 else
 {
-	echo 'Vous n\'avez pas sélectionné de réponse, veuillez recommencer.';	
+	echo '
+	<img  src="images/stop.png" alt="stop" />
+	<br>
+	Vous n\'avez pas sélectionné de réponse, veuillez recommencer.
+	';	
 }
 ?>
 <br>
 <a href="index.php"> Retour au menu</a>
 </div>
-<p class="line_design"> </p>
+<hr class="line_design">
 
 
 

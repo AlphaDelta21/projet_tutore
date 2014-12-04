@@ -1,4 +1,6 @@
 <!doctype html>
+
+
 <html>
 <head>
 <meta charset="utf-8">
@@ -19,17 +21,24 @@
 <form class="form_page1" action="question.php" method="post">
 	<p class="p_code"> Entrez le code donné par votre professeur :  <input name="txt_code" type="text" required></p>	
     <br>
-    <p class="p_code"> Recopiez ce captcha : <img src="captcha.php" alt="Captcha" />  <input type="text" name="captcha" id="captcha" /></p> 
+    <p class="p_code"> Recopiez ce captcha : <img  src="captcha.php" alt="Captcha" /><img id="refresh_button" src="images/refresh.png" alt="Refresh" Onclick="javascript:window.history.go(0)" /> <input type="text" name="captcha" id="captcha" required/></p>
     
 	
     <br><br>
     <input type="submit" class="bouton_design" value="Continuer" />
 </form>
 
-<p class="line_design"> </p>
+<hr class="line_design">
 <br>
 </div>
 
+
+
+
 <?php include "footer.php" ;?>
+
+
 </body>
 </html>
+
+<java
