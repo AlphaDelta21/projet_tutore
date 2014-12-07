@@ -28,8 +28,10 @@ else
 	';	
 }
 ?>
+
 <br>
-<a href="index.php"> Retour au menu</a>
+
+<a href="index.php"> <input type="submit" value="retour au menu principal" /></a>
 </div>
 <hr class="line_design">
 

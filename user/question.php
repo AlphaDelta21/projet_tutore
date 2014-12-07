@@ -22,14 +22,16 @@ if(isset($_POST['captcha']) && isset($_POST['txt_code']))
 	echo'
 	<form class="form_page2" action="trait.php" method="post">
         <p class="p_code"> Question de votre professeur :  <i>"la question ici"</i></p>	
-        <br>
-        <input class="radio" type="radio" name="rep" value="Réponse n°1" required /> <label for="oui">Réponse n°1</label>
-        <input class="radio" type="radio" name="rep" value="Réponse n°2" required /> <label for="non">Réponse n°2</label>
-        <br>
-        <input class="radio" type="radio" name="rep" value="Réponse n°3" required /> <label for="oui">Réponse n°3</label>
-        <input class="radio" type="radio" name="rep" value="Réponse n°4" required /> <label for="non">Réponse n°4</label> 
-    	<br><br>
-    	<input type="submit" value="Valider" />
+			<br>
+				<input class="radio" type="radio" name="rep" value="Réponse n°1" required /> <label for="oui">Réponse n°1</label>
+				<input class="radio" type="radio" name="rep" value="Réponse n°2" required /> <label for="non">Réponse n°2</label>
+				
+				<br>
+				
+				<input class="radio" type="radio" name="rep" value="Réponse n°3" required /> <label for="oui">Réponse n°3</label>
+				<input class="radio" type="radio" name="rep" value="Réponse n°4" required /> <label for="non">Réponse n°4</label> 
+			<br><br>
+    	<input type="submit" class="bouton_design" value="Valider" />
     </form>
 	';
 	}
@@ -38,10 +40,12 @@ if(isset($_POST['captcha']) && isset($_POST['txt_code']))
 	{
 		echo '
 		<img  src="images/stop.png" alt="stop" />
-		<br>
-		Le captcha n\'a pas été correctement tapé, veuillez recommencer.
-		<br>
-		<a href="index.php"> Retour au menu</a>';
+			<br>
+			Le captcha n\'a pas été correctement tapé, veuillez recommencer.
+			<br>
+		<a href="index.php"> <input type="submit" value="retour au menu principal" /></a>';
+		
+		
 	}
 }
 ?>

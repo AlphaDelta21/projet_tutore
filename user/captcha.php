@@ -28,17 +28,17 @@ function nombre($n)
 	return str_pad(mt_rand(0,pow(10,$n)-1),$n,'0',STR_PAD_LEFT);
 }
 
-function image($mot)
+/*function image($mot)
 {
     $font = 10;
+	
     $fontsize = imagefontwidth($font); // Largeur en pixels des caractères en fonction de la fonte choisie.
 	$largeur = strlen($mot) * $fontsize;
 	$hauteur = imagefontheight($font); // Hauteur en pixels des caractères en fonction de la fonte choisie.;
 	$marge = $fontsize;
-	$angle = 180;
+
 	
-	
-		
+					
 	$largeur_lettre = round($largeur/strlen($mot));
 	
 	$img = imagecreate($largeur+$marge, $hauteur+$marge);
@@ -75,7 +75,50 @@ function image($mot)
 	imagepng($img);
 	
 	imagedestroy($img);
+}*/
+
+function image($mot)
+{
+	$size = 32;
+	$marge = 30;
+	
+	$font = 'font/angelina.ttf';
+
+	$largeur = 80;
+	$hauteur = 20;
+	
+	$largeur_lettre = round($largeur/strlen($mot));
+	
+	
+	$img = imagecreate($largeur+$marge, $hauteur+$marge);	
+	
+	$color = imagecolorallocate ( $img , rand(0,255) , rand(0,255) , rand(0,255) );
+	
+	
+
+	for($i=0; $i<strlen($mot); $i++)
+	{
+		$color = imagecolorallocate ( $img , rand(0,255) , rand(0,255) , rand(0,255) );
+		
+		$l = $mot[$i];
+		$angle = mt_rand(-30,30);
+		imagettftext($img,mt_rand($size-7,$size),$angle,($i*$largeur_lettre+12), $hauteur+mt_rand(0,$marge/2),$color, $font, $l);
+		
+	}
+	
+	$color = imagecolorallocate ( $img , rand(0,255) , rand(0,255) , rand(0,255) );
+	imageline($img, 2,mt_rand(2,$hauteur), $largeur+$marge, mt_rand(2,$hauteur), $color);
+	
+	$color = imagecolorallocate ( $img , rand(0,255) , rand(0,255) , rand(0,255) );
+	imageline($img, 2,mt_rand(2,$hauteur), $largeur+$marge, mt_rand(2,$hauteur), $color);
+	
+	$color = imagecolorallocate ( $img , rand(0,100) , rand(100,200) , rand(200,255) );
+	imagerectangle($img, 1, 1, $largeur+$marge-1, $hauteur+$marge-1, $color); // La bordure
+	
+	imagepng($img);
+	imagedestroy($img);	
 }
+
 
 function captcha()
 {
