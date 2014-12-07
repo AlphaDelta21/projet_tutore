@@ -1,11 +1,14 @@
 <?php
-
+	session_start();
+	
 	require_once '../classes/ProfesseurClass.php';
 
 	$identifiant = strip_tags(addslashes ($_POST['identifiant']));
 	$mdp = strip_tags(addslashes ($_POST['mdp']));
 	
-	if ((isset($identifiant != '')) && (isset($mdp != '')))
+	
+	
+	if ((isset($identifiant)) && (isset($mdp)))
 	{
 		$prof = new Professeur(TRUE);
 		
@@ -16,6 +19,6 @@
 		}
 		
 		else 
-			echo 'Désolé, mais vous n\êtes pas autoriser à acceder à cet espace.';
+			echo 'Désolé, mais vous n\êtes pas autorisé à acceder à cet espace.';
 	}
 ?>

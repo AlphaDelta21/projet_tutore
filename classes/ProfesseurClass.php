@@ -3,6 +3,12 @@
 class Professeur
 {
 	private $bdd;
+	private $id;
+	private $nom;
+	private $prenom; 
+	private $email; 
+	private $identifiant; 
+	private $mdp;
 	
 	public function __construct($asAdmin)
 	{
@@ -37,21 +43,54 @@ class Professeur
 	
 	public function authentification($identifiant, $mdp)
 	{
-		$listeId = $this->getListeIdentifiant();
-		$listeMdp = $this->getListeMdp();
+		//$listeId = $this->getListeIdentifiant();
+		//$listeMdp = $this->getListeMdp();
 		
-		if(in_array($identifiant, $listeId) && in_array($mdp, $listeMdp))
+		
+		
+		$requete = $this->bdd->prepare('SELECT * FROM professeur WHERE identifiant = :identifiant, mdp = :mdp');
+			
+			$requete->bindParam(':identifiant', $identifiant, PDO::PARAM_STR, 50);
+			$requete->bindParam(':mdp', $mdp, PDO::PARAM_STR, 50);
+			
+			if($requete->execute() == TRUE)
+			{
+				//$array=$requete->fetch();
+				//printf($array[0]);
+				echo'OK !';
+			}			
+			
+			else 
+			{
+				echo "Erreur authentification !";
+			}
+		
+/*		if(in_array($identifiant, $listeId) && in_array($mdp, $listeMdp))
 		{
-			$requete = $this->bdd->prepare('SELECT * FROM professeur WHERE identifiant = :identifiant');
-			$requete->execute(array('identifiant' => $identifiant));
+			$requete = $this->bdd->prepare('SELECT * FROM professeur WHERE identifiant = :identifiant, mdp = :mdp');
+			
+			$requete->bindParam(':identifiant', $identifiant, PDO::PARAM_STR, 50);
+			$requete->bindParam(':mdp', $mdp, PDO::PARAM_STR, 50);
+			
+			if($requete->execute() == TRUE)
+			{
+				$array=$requete->fetch();
+				printf($array[0]);
+			}			
+			
+			else 
+			{
+				echo "Erreur authentification !";
+			}	
+			
+			//$requete->execute(array('identifiant' => $identifiant));
 					
-		//$array=$requete->fetch();
-		//echo($array[0]);*/
-			return 'true';	
+			
+			//return $array;	
 		}
 		else
 			return false;
-	}
+*/	}
 	
 	public function getId($nom)
 	{

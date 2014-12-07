@@ -14,7 +14,7 @@
 		<link rel="shortcut icon" type="image/x-icon" href="../images/iut-dijon.jpg" />
 		<meta name="generator" content="Bluefish 2.2.6" >
 		<meta name="author" content="elodie" >
-		<meta name="date" content="2014-11-24T18:32:53+0100" >
+		<meta name="date" content="2014-12-07T18:04:16+0100" >
 		<meta name="copyright" content="www.nomsite.fr">
 		<meta name="keywords" content="">
 		<meta name="description" content="Site de sondages de l'IUT informatique de Dijon">
@@ -38,7 +38,7 @@
 		<td colspan="2">
 			<h2>Identifiez vous</h2>
 					
-			<form method="POST" action="interface.php" class="form_auth">
+			<form method="POST" action="trait_auth.php" class="form_auth">
 				<label>Identifiant :</label> 
 				<input type="text" name="identifiant" id="identifiant"> <br>
 				<label>Mot de passe :</label> 

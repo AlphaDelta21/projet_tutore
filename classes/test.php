@@ -5,13 +5,15 @@
 	require_once 'EleveClass.php';
 	require_once 'ResultatClass.php';
 	
-	$res = new Resultat(true);
+	//$res = new Resultat(true);
 	
-	$array = $res->resultat(93);
+	//$array = $res->resultat(93);
 	
 	$prof = new Professeur(true);
 	
-	$array = $prof->authentification('moreauxq', 'mdp');
+	$prof->authentification('dumase', 'azerty');
+	
+	//$array = $prof->getId('moreauxq');
 	
 	//echo($array);
 	
@@ -24,18 +26,18 @@
 	$question = new Question(true);
 	$prof = new Professeur(true);
 	
-	//$question->ajouter("Bonjooour", 2, 9475, $tab);
+	//$question->ajouter("Bonjooour", 2, 9475, $tab);*/
 	
-	echo($prof->getPrenom(1));
+	/*echo($prof->getPrenom(1));
 	echo($prof->getNom(1));
 	echo($prof->getEmail(1));
 	echo($prof->getIdentifiant(1));
-	echo($prof->getMdp(1))
+	echo($prof->getMdp(1));
 	
-	if($prof->authentification('moreauxq', 'mdp'))
+	/*if($prof->authentification('moreauxq', 'mdp'))
 		echo("Wesh");
 	else
-		echo("Rip");
+		echo("Rip");*/
 	
 	
 
@@ -45,8 +47,8 @@
 	
 	//$question->supprimer($texte2);*/
 	
-	$eleve= new Eleve(true);
-	$eleve-> vote(1);
+//	$eleve= new Eleve(true);
+//	$eleve-> vote(1);
 			
 			
 
