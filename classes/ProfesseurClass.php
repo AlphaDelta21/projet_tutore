@@ -41,7 +41,14 @@ class Professeur
 		$listeMdp = $this->getListeMdp();
 		
 		if(in_array($identifiant, $listeId) && in_array($mdp, $listeMdp))
-			return true;
+		{
+			$requete = $this->bdd->prepare('SELECT * FROM professeur WHERE identifiant = :identifiant');
+			$requete->execute(array('identifiant' => $identifiant));
+					
+		//$array=$requete->fetch();
+		//echo($array[0]);*/
+			return 'true';	
+		}
 		else
 			return false;
 	}

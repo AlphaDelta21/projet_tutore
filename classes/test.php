@@ -3,6 +3,21 @@
 	require_once 'ProfesseurClass.php';
 	require_once 'QuestionClass.php';
 	require_once 'EleveClass.php';
+	require_once 'ResultatClass.php';
+	
+	$res = new Resultat(true);
+	
+	$array = $res->resultat(93);
+	
+	$prof = new Professeur(true);
+	
+	$array = $prof->authentification('moreauxq', 'mdp');
+	
+	//echo($array);
+	
+	/*	
+	for($i=0;$i<count($array);$i++)
+		echo($array[$i]);
 	/*
 	$tab = array("Reponse1", "Reponse2", "Reponse3");
 	
