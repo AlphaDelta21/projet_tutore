@@ -31,7 +31,7 @@ else
 
 <br>
 
-<a href="index.php"> <input type="submit" value="retour au menu principal" /></a>
+<a href="index.php"> <input type="submit" class="bouton" value="retour au menu principal" /></a>
 </div>
 <hr class="line_design">
 

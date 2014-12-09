@@ -25,7 +25,7 @@
     <br>
     
     <p class="p_code"> Recopiez ce captcha : <img  src="captcha.php" alt="Captcha" /><img id="refresh_button" src="images/refresh.png" alt="Refresh" Onclick="javascript:window.history.go(0)" /></p> 
-    <input type="text" name="captcha" id="captcha" placeholder="Code Captcha" required/>
+    <input type="text" name="captcha" id="captcha" placeholder="Code captcha" required/>
     
 	
     <br><br>

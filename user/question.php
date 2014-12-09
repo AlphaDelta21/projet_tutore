@@ -40,10 +40,10 @@ if(isset($_POST['captcha']) && isset($_POST['txt_code']))
 	{
 		echo '
 		<img  src="images/stop.png" alt="stop" />
-			<br>
+			<br><br>
 			Le captcha n\'a pas été correctement tapé, veuillez recommencer.
-			<br>
-		<a href="index.php"> <input type="submit" value="retour au menu principal" /></a>';
+			<br><br>
+		<a href="index.php"> <input type="submit" class="bouton" value="retour au menu principal" /></a>';
 		
 		
 	}
