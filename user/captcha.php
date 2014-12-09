@@ -65,9 +65,9 @@ function image($mot)
 	$size = 32;
 	$marge = 30;
 	
-	$font = 'font/angelina.ttf';
+	$font = 'font/angelina.TTF';
 
-	$largeur = 80;
+	$largeur = 100;
 	$hauteur = 20;
 	
 	$largeur_lettre = round($largeur/strlen($mot));
@@ -75,10 +75,11 @@ function image($mot)
 	
 	$img = imagecreate($largeur+$marge, $hauteur+$marge);	
 	
+	$fond = imagecolorallocate ( $img , rand(0,70) , rand(0,70) , rand(0,70));
+	
+	
 	$color = imagecolorallocate ( $img , rand(80,255) , rand(80,255) , rand(80,255));
 	
-	
-
 	for($i=0; $i<strlen($mot); $i++)
 	{
 		$color = imagecolorallocate ( $img , rand(80,255) , rand(80,255) , rand(80,255));
@@ -92,7 +93,7 @@ function image($mot)
 	$color = imagecolorallocate ( $img , rand(10,255) , rand(80,255) , rand(80,255));
 	imageline($img, 2,mt_rand(2,$hauteur+$marge), $largeur+$marge, mt_rand(2,$hauteur), $color); // 1ère ligne qui passe par dessus le texte
 	
-	$color = imagecolorallocate ( $img , rand(80,255) , rand(80,255) , rand(80,255));
+	$color = imagecolorallocate ( $img , rand(10,255) , rand(80,255) , rand(80,255));
 	imageline($img, 2,mt_rand(2,$hauteur+$marge), $largeur+$marge, mt_rand(2,$hauteur), $color); // 2nd ligne 
 	
 	$color = imagecolorallocate ( $img , rand(80,255) , rand(80,255) , rand(80,255));
@@ -100,6 +101,8 @@ function image($mot)
 	
 	$color = imagecolorallocate ( $img , rand(0,255) , rand(0,255) , rand(0,255));
 	imagerectangle($img, 1, 1, $largeur+$marge-1, $hauteur+$marge-1, $color); // La bordure
+	
+	$fond = imagecolorallocate ( $img , rand(200,255) , rand(200,255) , rand(200,255));
 	
 	imagepng($img);
 	imagedestroy($img);	
@@ -113,7 +116,7 @@ function captcha()
 	image($mot);
 }
 
-
+	
 
 header("Content-type: image/png");
 captcha();
