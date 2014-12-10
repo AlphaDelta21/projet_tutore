@@ -25,7 +25,7 @@ function image($mot)
 	
 	$img = imagecreate($largeur+$marge, $hauteur+$marge); // création du rectangle, on lui attribut ses dimensions	
 	
-	$fond = imagecolorallocate ( $img , rand(0,70) , rand(0,70) , rand(0,70)); // ici on attribut la couleur de fond de notre image, un ton foncé pour une meilleure lisibilité
+	imagecolorallocate ( $img , rand(0,70) , rand(0,70) , rand(0,70)); // ici on attribut la couleur de fond de notre image( en effet le fond prend sa couleur au 1er appel de la fonction ), un ton foncé pour une meilleure lisibilité
 
 	
 	for($i=0; $i<strlen($mot); $i++) // on parcourt une boucle allant de 0 à "le nombre de caractère"

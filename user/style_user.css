@@ -12,16 +12,6 @@ body
 
 /* ------------------------------------- */
 
-/*.div_global
-{
-	border:1px solid black;	
-	border-radius:0px 0px 20px 20px;
-	width:40%;
-	margin:auto;
-}*/
-
-
-
 #refresh_button
 {
 	cursor:pointer;	
@@ -38,21 +28,15 @@ body
 {
 	width:100%;
 	text-align:center;	
-	background-attachment:fixed;
-
-	
+	background-attachment:fixed;	
 	bottom:0px;
-
 }
 
 .tranq
 {
 	vertical-align:bottom;
-	width:100%;
-	
-	bottom:0px;
-
-		
+	width:100%;	
+	bottom:0px;		
 }
 
 .form_page1
@@ -64,7 +48,7 @@ body
 {
 	width:17em;
 	height:8em;
-	box-shadow:#FFFFFF;
+	box-shadow:#FFFFFF;	
 }
 
 .p_code

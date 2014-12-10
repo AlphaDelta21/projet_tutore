@@ -10,7 +10,7 @@
 <body>
 
 
-<div class="div_global">
+
 <div class="div_img">
 	
     <img src="images/student.png" class="img_iut"  alt=""/>
@@ -34,7 +34,7 @@
 
 <hr class="line_design">
 <br>
-</div>
+
 
 
 
