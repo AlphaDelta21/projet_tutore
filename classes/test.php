@@ -3,15 +3,27 @@
 	require_once 'ProfesseurClass.php';
 	require_once 'QuestionClass.php';
 	require_once 'EleveClass.php';
-	require_once 'ResultatClass.php';
 
 	
+	$question = new Question();
 	
-	$prof = new Professeur();
-		
-	echo($prof->authentification('moreauxq', 'mdp'));
+	$question->hydrate(array(
+	'id_prof' => 5,
+	'nomQuestion' => 'Coucou ?',
+	'code' => 9999,
+	'publiable' => 0
+	));
 	
-	echo($prof->toString());
+	$reponse = array(
+	'Coucou', 'Salut', 'A plus');
+	
+	
+	$question->supprimer(97);
+	$question->supprimer(98);
+	$question->supprimer(99);
+	
+	echo($question->afficher(9999));
+	
 				
 
 ?>
