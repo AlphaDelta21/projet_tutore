@@ -117,7 +117,11 @@ class Professeur
 	
 	public function getId()
 	{
+<<<<<<< HEAD
 		return $this->id;
+=======
+		return $this->id_prof;
+>>>>>>> 6490a593d3f7e233c1d6e368967b6f70ee46f1f0
 	}		
 	
 	public function getNom()

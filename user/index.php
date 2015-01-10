@@ -11,6 +11,10 @@
 <?php require "../classes/QuestionClass.php" ;?>
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 6490a593d3f7e233c1d6e368967b6f70ee46f1f0
 <div class="div_img">
 	
     <img src="images/student.png" class="img_iut"  alt=""/>
