@@ -4,46 +4,93 @@ class Question
 {
 	private $bdd;
 	
-	public function __construct($asAdmin)
+	private $idQuestion;
+	private $idProf;
+	private $question;
+	private $code;
+	private $publiable;
+	private $theme;
+	
+	/*Constructeur de la classe Question, initialise la connexion à la BDD*/
+	public function __construct()
 	{
 		
 		try 
 		{
-			if($asAdmin)
 				$this->bdd = new PDO('mysql:host=sql-pedago;dbname=iq-kidioui','iq-kidioui_adm','TuD8R778');
-			else
-				$this->bdd = new PDO('mysql:host=sql-pedago;dbname=iq-kidioui','iq-kidioui','VaC4tD85');
 		}	
 		catch(Exception $e)
 		{
 			die('Erreur : '.$e->getMessage());
 		}
+		
+		$this->theme="";
+	}
+	/*Permet l'hydration de la question, c'est à dire l'initialision des attributs via le tableau recu en parametres $donnes*/
+	public function hydrate(array $donnees)
+	{
+		foreach($donnees as $key=>$value)
+		{
+			$method='set'.ucfirst($key);
+
+			if(method_exists($this,$method))
+				$this->$method($value);
+		}
 	}
 	
-	public function ajouter($question, $prof, $code,  $arrayReponse)
+	/*Retourne les propriétés de la question et les réponses, sous forme d'une chaine de caractere, séparé par des '*' */
+	public function toString()
 	{
-		echo("Bonjour");
+		$chaine = $this->idQuestion . '*' . $this->idProf . '*' . $this->question . '*' . $this->code . '*' . $this->publiable . '*' . $this->theme;
+		
+		$reponse = $this->getReponse($this->idQuestion);
+		for($i=0;$i<count($reponse); $i++)
+		{
+			$chaine= $chaine. '*' . $reponse[$i] ;
+		}
+		
+		return $chaine;
+	}
+	
+	/*Retourne les propriétés de la question et les réponses, sous forme d'un tableau */
+	public function toArray()
+	{
+	$array = array($this->idQuestion, $this->idProf, $this->question, $this->code, $this->publiable, $this->theme);
+	
+	$reponse = $this->getReponse($this->idQuestion);
+		for($i=0;$i<count($reponse); $i++)
+		{
+			$array[] = $reponse[$i] ;
+		}
+		
+	return $array;
+	
+	}
+	/* Fonction permettant d'ajouter la question actuelle dans la BDD, ainsi que les réponses correspondante, contenu dans $arrayReponse*/
+	public function ajouter($arrayReponse)
+	{
 		
 		$requete= $this->bdd->prepare('
-		INSERT INTO question(id_prof, nomQuestion, code)
-		VALUES(:id_prof, :nomQuestion, :code)');
+		INSERT INTO question(id_prof, nomQuestion, code, id_theme)
+		VALUES(:id_prof, :nomQuestion, :code, :theme)');
 		
 		$requete->execute(array(
-			'id_prof' => $prof,
-			'nomQuestion' => $question,
-			'code' => $code));
-			
+			'id_prof' => $this->idProf,
+			'nomQuestion' => $this->question,
+			'code' => $this->code,
+			'theme' => $this->theme));
+					
+				
 		$requete=$this->bdd->prepare('
 		SELECT id_question
 		FROM question
 		WHERE nomQuestion = :nomQuestion');
 		
-		$requete->execute(array('nomQuestion' => $question));
+		$requete->execute(array('nomQuestion' => $this->question));
 		
 		$result = $requete->fetch();
 		
-		$idQuestion=intval($result[0]);
-					
+		$idQuestion=intval($result[0]);		
 				
 		for($i=0;$i<count($arrayReponse); $i++)
 		{
@@ -60,43 +107,16 @@ class Question
 		
 	}
 	
-	public function supprimer($question)
+	/*Fonction permettant de modifier la question d'id $id, avec le tableau de reponse $arrayReponse*/
+	public function modifier($id, $arrayReponse)
 	{
-
-		$requete =$this->bdd->prepare('
-		SELECT id_question 
-		FROM question
-		WHERE nomQuestion = :nomQuestion');
+				
+		$requete3 = $this->bdd->prepare('SELECT id_reponse FROM reponse WHERE id_question = :id');
 		
-		$requete->execute(array('nomQuestion' => $question));
-		
-		$idQuestion = $requete->fetch();
-		
-		$deleteReponse=$this->bdd->exec('DELETE FROM reponse
-		WHERE id_question = '. $idQuestion[0]);
-		
-		$deleteQuestion=$this->bdd->exec('DELETE FROM question
-		WHERE id_question = '. $idQuestion[0]);
-		
-	}
-	
-	public function modifier($question, $arrayReponse, $newQuestion)
-	{
-	
-		$requete =$this->bdd->prepare('
-		SELECT id_question 
-		FROM question
-		WHERE nomQuestion = :nomQuestion');
-		
-		$requete->execute(array('nomQuestion' => $question));
-		
-		$idQuestion = $requete->fetch();
-			
-		$requete3 = $this->bdd->prepare('SELECT id_reponse FROM reponse WHERE id_question = :question');
-		
-		$requete3->execute(array('question' => $idQuestion[0]));
+		$requete3->execute(array('id' => $id));
 		
 		$j=0;
+		$idReponse = array();
 		while($resultat = $requete3->fetch(PDO::FETCH_NUM))
 		{
 				foreach($resultat as $valeur)
@@ -116,74 +136,112 @@ class Question
 		}
 		
 		$updateQuestion=$this->bdd->prepare('UPDATE question
-		SET nomQuestion = :question WHERE id_question = '. $idQuestion[0]);
+		SET nomQuestion = :question WHERE id_question = :id');
 		
-		$updateQuestion->execute(array('question' => $newQuestion));
+		$updateQuestion->execute(array('question' => $this->question,'id' => $id));
+		
+		$updateCode=$this->bdd->prepare('UPDATE question
+		SET code = :code WHERE id_question = :id' );
+		
+		$updateCode->execute(array('code' => $this->code,'id' => $id));
+		
+		$updateTheme=$this->bdd->prepare('UPDATE question
+		SET id_theme = :theme WHERE id_question = :id' );
+		
+		$updateCode->execute(array('theme' => $this->theme,'id' => $id));
+		
 	
 	}
 	
-	public function publier()
+	/*Fonction permettant de supprimer la question d'id $id*/
+	public function supprimer($id)
 	{
+		$deleteVote=$this->bdd->exec('DELETE FROM vote
+		WHERE id_question = '. $id);
+
+		$deleteReponse=$this->bdd->exec('DELETE FROM reponse
+		WHERE id_question = '. $id);
+		
+		$deleteQuestion=$this->bdd->exec('DELETE FROM question
+		WHERE id_question = '. $id);
+		
+		if($deleteReponse!=false && $deleteQuestion!=false)
+			return true;
+		else
+			return false;
+		
+	}
+
 	
+	
+	public function afficher($code)
+	{
+		$requete= $this->bdd->prepare('SELECT * FROM question WHERE code = :code');
+		
+		$requete->execute(array('code' => $code));
+		
+		$result = $requete->fetch(PDO::FETCH_ASSOC);
+
+		if(gettype($result)=="array")
+		{
+			
+			$this->hydrate($result);
+			
+			return $this->toString();
+		}
+		else
+			return false;
+		
+		
+		
 	}
 	
-	public function getId($question)
+	public function hydrateId($question)
 	{
-		$requete = $this->bdd->prepare('SELECT id_question FROM question WHERE nomQuestion = :question');
+		$requete= $this->bdd->prepare('SELECT * FROM question WHERE id_question = :question');
 		
 		$requete->execute(array('question' => $question));
-		
-		$result = $requete->fetch();
-		
-		return $result[0];
-	}
-	
-	public function getQuestion($id)
-	{
-		$requete = $this->bdd->prepare('SELECT nomQuestion FROM question WHERE id_question = :id');
-		
-		$requete->execute(array('id' => $id));
-		
-		$result = $requete->fetch();
-		
-		return $result[0];
-	}
-	
-	public function getListeQuestion()
-	{
-		$requete = $this->bdd->query('SELECT nomQuestion FROM question');
-				
-		
-		while($donnees=$requete->fetch(PDO::FETCH_NUM))
+		if($requete!=false)
 		{
-			foreach($donnees as $valeur)
-				$array[] = $valeur;
+			$result = $requete->fetch(PDO::FETCH_ASSOC);
+			$this->hydrate($result);
 		}
-
-
-		return $array;
+		
 	}
 	
-	public function getCode($id)
+	public function publier($id)
 	{
-		$requete = $this->bdd->prepare('SELECT code FROM question WHERE id_question = :id');
-		
-		$requete->execute(array('id' => $id));
-		
-		$result = $requete->fetch();
-		
-		return $result[0];
+		$requete = $this->bdd->exec('UPDATE question SET publiable = 1 WHERE id_question = ' .$id);
 	}
 	
-	public function getIdProf($id)
+	
+	public function getListeQuestion($idProf)
 	{
-		$requete = $this->bdd->prepare('SELECT id_prof FROM question WHERE id_question = :id');
-		
-		$requete->execute(array('id' => $id));
-		
-		$result = $requete->fetch();
-		
-		return $result[0];
+			$result = array();
+			$requete= $this->bdd->query('SELECT id_question FROM question WHERE id_prof ="'.$idProf.'";');
+			
+			$i=0;
+			while($val = $requete->fetch(PDO::FETCH_NUM))
+			{
+				$result[$i]=$val[0];
+				$i++;
+			}
+			
+			$j;
+			$array = array();
+			
+			for($j=0;$j<count($result);$j++)
+			{
+				$requete= $this->bdd->prepare('SELECT * FROM question WHERE id_question = :id');
+				$requete->execute(array('id' => $result[$j]));
+
+				$resultat = $requete->fetch(PDO::FETCH_ASSOC);
+				$this->hydrate($resultat);
+
+				$array[$j]=$this->toArray();
+			}
+			
+			return $array;
 	}
 	
 	public function getReponse($id)
@@ -192,15 +250,112 @@ class Question
 		
 		$requete->execute(array('id' => $id));				
 		
+		$array = array();
 		while($donnees=$requete->fetch(PDO::FETCH_NUM))
 		{
 			foreach($donnees as $valeur)
 				$array[] = $valeur;
 		}
-
-
 		return $array;
 	}
+	
+	public function getIdReponse($reponse)
+	{
+		$requete = $this->bdd->prepare('SELECT id_reponse FROM reponse WHERE nomReponse = :reponse');
+		
+		$requete->execute(array('reponse' => $reponse));				
+		
+		$result=$requete->fetch(PDO::FETCH_NUM);
+
+		return $result[0];
+	}
+	
+	function afficheListe($bigArray, $i)
+	{
+	
+		$array = $bigArray[$i];
+		echo '<tr>';
+			echo '<td>'.$array[2].'</td>';
+			echo '<td>'.$array[3].'</td>';
+			
+			
+			echo 	'<td><input type="button" value="Modifier" onclick="location.assign(\'http://iutdijon.u-bourgogne.fr/pedago/iq/kidioui/admin/trait_mod.php/?nom=' . $array[0] . '\')" </td>
+					<td><input type="button" value="Supprimer" onclick="location.assign(\'http://iutdijon.u-bourgogne.fr/pedago/iq/kidioui/admin/trait_sup.php/?nom=' . $array[0] . '\')" </td>
+					<td><input type="button" value="Publier" onclick="location.assign(\'http://iutdijon.u-bourgogne.fr/pedago/iq/kidioui/admin/trait_pub.php/?nom=' . $array[0] . '\')" </td>										
+				</tr>';
+	}
+	
+	
+	
+	
+	//Accesseurs
+	
+	public function getIdQuestion()
+	{
+		return $this->idQuestion;
+	}
+	
+	public function getIdProf()
+	{
+		return $this->idProf;
+	}
+	
+	public function getQuestion()
+	{
+		return $this->question;
+	}
+	
+	public function getCode()
+	{
+		return $this->code;
+	}
+	
+	public function isPubliable()
+	{
+		return $this->publiable;
+	}
+	
+	public function getTheme()
+	{
+		return $this->theme;
+	}
+	
+	
+	
+	
+	public function setId_question($idQ)
+	{
+		$this->idQuestion = $idQ;
+	}
+	
+	public function setId_prof($idP)
+	{
+		$this->idProf = $idP;
+	}
+	
+	public function setNomQuestion($question)
+	{
+		$this->question = $question;
+	}
+	
+	public function setCode($code)
+	{
+		$this->code =$code;
+	}
+	
+	public function setPubliable($bool)
+	{
+		$this->publiable = $bool;
+	}
+	
+	public function setTheme($theme)
+	{
+		$this->theme = $theme;
+	}
+	
+	
+	
+	
 }
 
 ?>

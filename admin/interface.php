@@ -2,15 +2,8 @@
 	session_start();
 	require_once '../classes/ProfesseurClass.php';
 	require_once '../classes/QuestionClass.php';
-
-	$identifiant = $_POST['identifiant'];
-	$mdp = $_POST['mdp'];
-	
-	$prof = new Professeur($admin);
-	
 ?>
-
-		<!DOCTYPE html>
+<!DOCTYPE html>
 	<html lang='fr'>
 	
 		<head>
@@ -20,7 +13,7 @@
 			<link rel="shortcut icon" type="image/x-icon" href="../images/iut-dijon.jpg" />
 			<meta name="generator" content="Bluefish 2.2.6" >
 			<meta name="author" content="elodie" >
-			<meta name="date" content="2014-12-07T17:55:55+0100" >
+			<meta name="date" content="2015-01-08T18:12:55+0100" >
 			<meta name="copyright" content="www.nomsite.fr">
 			<meta name="keywords" content="">
 			<meta name="description" content="Site de sondages de l'IUT informatique de Dijon">
@@ -28,130 +21,77 @@
 			<meta http-equiv="content-type" content="text/html; charset=UTF-8">
 			<meta http-equiv="content-style-type" content="text/css">
 			<meta http-equiv="expires" content="0">
+			<script src="ckeditor/ckeditor.js"></script>
 		</head>
 		
-<body>
-
-<?php		
+	<body>
+	<div class="descriptionprof">
+		<h1><?php echo $_SESSION['pseudo']; ?></h1>	
+	</div>
 	
-/*	if($prof->authentification($identifiant, $mdp) == TRUE)
-	{*/
-		//$_SESSION['nom'] = $prof->getNom();
-		//$_SESSION['id'] = $prof->getId();
-	
-?>
-	
-<script src="ckeditor/ckeditor.js"></script>
-
 	<table class="contenupage">
-	
-		<th class="descriptionprof">
-			<h1>
-				Bonjour professeur
-				<?php
-					//echo $_SESSION['nom'];
-				?>
-			</h1>
-		</th>
-		<th class="descriptionprof">	
-			<img src="../images/iut-dijon.png" alt="">
-		</th>
+		
 		<tr>
-			<td style="width: 70%; vertical-align: top;">
+			<td style="vertical-align: top;">
+			
 				<form action="trait_deco.php" style="text-align : left;"><input type="submit" value="Déconnecter"></form>
 				
 				<h2>Historique</h2>
 				
-				<div style=" height: 200px; overflow-y:scroll;">
+				<div style=" height: 500px; overflow-y:scroll;">
 				
 				<table class="table_historique" style="border: 1px solid black; border-collapse: collapse; paddin: 0px;">
-					<th style="width: 90% background-color: background-color: #CA0062;">Question</th><th style="width: 10%;"></th>		
-					
-					<?php
-							
-						$question = new Question($asAdmin);
-							
+					<th colspan="3" style="width: 90% background-color: background-color: #CA0062;">Question</th>	
+				<?php
 						
-						//tableau qui regroupe toutes les questions de la Bdd
-						$liste_question = $question->getListeQuestion();
-						foreach($liste_question as $question)
+						$question = new Question();
+		
+						$liste = $question->getListeQuestion($_SESSION['idProf']);
+						
+						for($i=0;$i<count($liste);$i++)
 						{
-							//fonction qui coupe la chaine, et met dans $tab_tri chaque attribut
-							//$tab_tri = split('/', $question->toString());
+							$question->afficheListe($liste, $i);
 							
-							echo '<tr>';								
-							echo '<td>'.$value.'</td>';	
-							echo '<td>
-									<img src="modif.png" onclick=modifier() width="30" height="30" alt=""> <img src="suppr.png" onclick=supprimer() width="30" height="30" alt=""></td>
-									</tr>';
-						}
-						
-					?>		
+						}							
+				?>
+		
 				</table>
 	
 				</div>				
 			</td>
 			
 			<td class="publier">
-				Publier une nouvelle question
+				<h2>Nouvelle question</h2>
 						
 					<form method="POST" action="trait_new.php" style="text-align: left; margin: 3px;">
 						<label>Question :</label>
-						<textarea cols="30" rows="10" name="question" style="resize:none;"></textarea> <br>
+							<textarea name="editor1" id="editor1" cols="25" rows="5" style=" margin: 5px; resize:none;" required>
+						
+	         			</textarea> <br>
 						<label>Réponse 1 :</label>
-						<input type="text" id="rep1" name="rep1"> <br>
+							<input type="text" id="rep1" name="reponse[]" required> <br>
 						<label>Réponse 2 :</label>
-						<input type="text" id="rep2" name="rep2"> <br>
+							<input type="text" id="rep2" name="reponse[]" required> <br>
 						<label>Réponse 3 :</label>
-						<input type="text" id="rep3" name="rep3"> <br>
+							<input type="text" id="rep3" name="reponse[]"> <br>
 						<label>Réponse 4 :</label>
-						<input type="text" id="rep4" name="rep4"> <br>
+							<input type="text" id="rep4" name="reponse[]"> <br>
 						<label>Code identifiant :</label>
-						<input type="text" id="code" name="code"> <br>
-						<input type="submit" id="poster" name="poster" value="Poster">
+							<input type="text" id="code" name="code" required> <br>
+							<input type="submit" id="poster" name="poster" value="Poster">
 					</form>	
 			</td>
 		</tr>
 		<tr>
-			<td class="piedpage" colspan="2">Nous contacter</td>
+			<td class="piedpage" colspan="2">Développer par AlphaDelta21</td>
 		</tr>
 	
 	</table>	
 	
-
-<?php
-
-/*	}
-		
-	else 
-	{
-		echo 'Nous sommes désolés mais l\'authentification a échoué.';
-		echo '<form action="index.php">
-					<input type="submit" value="Retour" >
-				</form>'	;
-	}			
-	*/
-?>
-
-
-</body>
-
-</html>
-
-<script type="text/javascript">
-
-	function modifier(question, tab_rep)
-	{
-		window.location.assign("trait_mod.php?question"+question+"&tab_rep="+tab_rep);
-	}	
+	</body>
 	
-	function supprimer(question)
-	{
-		window.location.assign("trait_sup.php?question"+supprimer);
-	}
+	</html>
 	
-		function publier(code)
-	{
-		window.location.assign("trait_sup.php?code="+code);
-	}	
+<script>
+    CKEDITOR.replace('editor1');
 </script>

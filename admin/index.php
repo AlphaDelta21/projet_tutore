@@ -1,5 +1,4 @@
 <?php
-	session_start();
 	require_once '../classes/ProfesseurClass.php';
 	require_once '../classes/QuestionClass.php';
 ?>
@@ -14,7 +13,7 @@
 		<link rel="shortcut icon" type="image/x-icon" href="../images/iut-dijon.jpg" />
 		<meta name="generator" content="Bluefish 2.2.6" >
 		<meta name="author" content="elodie" >
-		<meta name="date" content="2014-12-07T18:04:16+0100" >
+		<meta name="date" content="2015-01-08T17:39:48+0100" >
 		<meta name="copyright" content="www.nomsite.fr">
 		<meta name="keywords" content="">
 		<meta name="description" content="Site de sondages de l'IUT informatique de Dijon">
@@ -26,36 +25,22 @@
 	
 <body>
 
-<table>
-	<th class="descriptionprof">
-		<h1>Authentification</h1>
-	</th>
-	<th class="descriptionprof">	
-		<img src="../images/iut-dijon.png" alt="">
-	</th>
-	
-	<tr class="contenupage">
-		<td colspan="2">
-			<h2>Identifiez vous</h2>
-					
-			<form method="POST" action="trait_auth.php" class="form_auth">
-				<label>Identifiant :</label> 
-				<input type="text" name="identifiant" id="identifiant"> <br>
-				<label>Mot de passe :</label> 
-				<input type="password" name="mdp" id="mdp">	<br>
-				<input type="submit" name="connexion" value="Connexion"> <br>				
-			</form>
-			
-			<a href="mdp_forget.php">Mot de passe oublié ?</a> <a href="inscription.php">Pas encore inscrit ?</a>
+	<div class="descriptionprof">		
+		<h1>Authentification</h1>	
+	</div>
 
-		</td>
-	</tr>
-	<tr>
-		<td class="piedpage" colspan="2">Nous contacter</td>
-	</tr>
-
-</table>
-
+	<div class="contenupage">
+		<h2>Identifiez vous</h2>
+						
+		<form method="POST" action="trait_auth.php">
+			<label>Identifiant :</label> 
+			<input type="text" name="identifiant" id="identifiant"> <br>
+			<label>Mot de passe :</label> 
+			<input type="password" name="mdp" id="mdp">	<br>
+			<input type="submit" name="connexion" value="Connexion"> <br>				
+		</form>
+		<a href="inscription.php">Pas encore inscrit ?</a>
+	</div>	
 </body>
 
 </html>

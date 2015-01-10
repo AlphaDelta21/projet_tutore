@@ -13,7 +13,7 @@
 		<link rel="shortcut icon" type="image/x-icon" href="../images/iut-dijon.jpg" />
 		<meta name="generator" content="Bluefish 2.2.6" >
 		<meta name="author" content="elodie" >
-		<meta name="date" content="2014-11-24T18:56:26+0100" >
+		<meta name="date" content="2015-01-03T00:28:38+0100" >
 		<meta name="copyright" content="www.nomsite.fr">
 		<meta name="keywords" content="">
 		<meta name="description" content="Site de sondages de l'IUT informatique de Dijon">
@@ -29,9 +29,6 @@
 		<th class="descriptionprof">
 			<h1>Au revoir...</h1>
 		</th>
-		<th class="descriptionprof">	
-			<img src="../images/iut-dijon.png" alt="">
-		</th>
 		
 		<tr class="contenupage">
 			<td colspan="2">
@@ -43,9 +40,6 @@
 				</form>
 	
 			</td>
-		</tr>
-		<tr>
-			<td class="piedpage" colspan="2">Nous contacter</td>
 		</tr>
 	
 	</table>

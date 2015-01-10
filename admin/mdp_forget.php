@@ -8,7 +8,7 @@
 		<link rel="shortcut icon" type="image/x-icon" href="../images/iut-dijon.jpg" />
 		<meta name="generator" content="Bluefish 2.2.6" >
 		<meta name="author" content="elodie" >
-		<meta name="date" content="2014-11-20T12:27:40+0100" >
+		<meta name="date" content="2014-12-29T17:42:08+0100" >
 		<meta name="copyright" content="www.nomsite.fr">
 		<meta name="keywords" content="">
 		<meta name="description" content="Site de sondages de l'IUT informatique de Dijon">
@@ -19,19 +19,16 @@
 	</head>
 	
 	<?php
-		require_once '../developpement/bdd/question.class.php';
-		require_once '../developpement/bdd/bdd.class.php';
+		require_once '../classes/questionClass.php';
 	?>
 
 <body>
+	
+	<div class="descriptionprof">
+		<h1>Oubli de mot de passe ?</h1>	
+	</div>
 
 <table>
-	<th class="descriptionprof">
-		<h1>Oubli de mot de passe ?</h1>
-	</th>
-	<th class="descriptionprof">	
-		<img src="../images/iut-dijon.png" alt="">
-	</th>
 	
 	<tr class="contenupage">
 		<td colspan="2">

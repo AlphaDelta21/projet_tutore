@@ -1,55 +1,55 @@
-/*Déclaration nouvelle police*/
-@font-face 
+html
 {
-    font-family: 'PoliceTitre';
-	src: url('/polices/basictitlefont.ttf') format('truetype');        
-}
-
-html, body 
-{
+	margin: 0;
 	padding: 0;
-	margin-bottom: 0;
-	height: 100%;
-	padding : 0;
-	margin : 0;
-	height : 100%;
+	width: 100%;
 }
 
 body
 {
-	background-color: #F3F3F3;
 	font-family: Arial;
+	margin: 0;
+	width: 100%;
+	padding: 50px 0px 0px 0px;
 }
 
 .contenupage
 {
 	width: 100%;
-	background-color: #FFFFFF;
 	text-align: center;
-	vertical-align: top;
-	border-radius: 3px;
-	height: 90%;
+	background-color: white;
 }
 
 .descriptionprof
 {
-	height: 10%;
-	font-size: 150%;
-	text-align: left;
-	background-color: #AECC42;
+	background-color: #0862F4;
 	color: white;
-	vertical-align: middle;
-	width: 85%;
+	
+	/* Positionnement de la div sur la couche la plus haute */
+	z-index: 1000;
+	
+	/* Positionnement de l'entête de manière à ce qu'elle soit toujours visible, en haut de la page*/
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	margin: 0;
+	
+	width: 100%;
+	height: 50px;	
+	--padding: 10px;
+	vertical-align: top;
+	/* Ajout d'une petit ombre */
+	box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .form_auth
 {
 	margin-left: auto;
 	margin-right: auto;
-	margin-bottom: 3%;
+	--margin-bottom: 3%;
 	--margin-top: 5%;
-	min-width: 30%;
-	max-width: 30%;
+	--min-width: 30%;
+	--max-width: 30%;
 }
 
 .form_auth label
@@ -61,30 +61,21 @@ body
 
 .for_auth input
 {
-	width: 100%;
+	width: 190px;
 }
 
 h1
 {
-	padding: 0;
-	margin-left: 5px;
 	font-size: 150%;
 	font-family: Sans-Serif;
+	margin-left: 15px;
 }
 
 h2
 {
 	font-size: 150%;
-	color:#FF7800;
+	color: #FD6302;
 	--text-shadow: 1px 1px 1px #777;
-}
-
-img
-{
-	width: 100%;
-	height: auto;
-	float: right;
-	vertical-align: top;
 }
 
 .historique
@@ -96,10 +87,29 @@ img
 	text-align: left;
 }
 
+img
+{
+	width: 100%;
+	height: auto;
+	float: right;
+	vertical-align: top;
+}
+
+
+
 .icone
 {
 	min-width: 25px;
 	max-width: 25px;
+}
+
+
+.logo
+{
+	float: right;
+	height: 60px;
+	width: auto;
+	margin-right: 15px;
 }
 
 .newquestion
@@ -115,18 +125,17 @@ img
 
 .piedpage
 {
-	
-	--position: absolute;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	text-align: center;
-	font-size: 80%;
+	--bottom: 0;
+	--left: 0;
+	--right: 0;
+	--text-align: center;
+	--font-size: 80%;
 }
 
 .publier
 {
 	border-left: 3px dotted #CA0062;
+	width: 35%;
 }
 
 .structure
@@ -145,7 +154,7 @@ table
 .table_historique
 {
 	width: 88%;
-	height: 10%;
+	height: 50%;
 	text-align: justify;
 	padding: 3px;
 	margin-left: auto;

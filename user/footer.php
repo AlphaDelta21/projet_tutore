@@ -8,6 +8,9 @@
     <img src="../images/iut-dijon.png" class="img_iut"  alt=""/>    
 </div>
 
+
+
+
 <div class="div_footer">    
     <p class="p_footer"> Développé par <a href="includes/alpha-beta.php">αΔ</a> </p>
 </div>

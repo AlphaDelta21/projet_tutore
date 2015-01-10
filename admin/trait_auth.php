@@ -2,23 +2,24 @@
 	session_start();
 	
 	require_once '../classes/ProfesseurClass.php';
-
-	$identifiant = strip_tags(addslashes ($_POST['identifiant']));
-	$mdp = strip_tags(addslashes ($_POST['mdp']));
+	require_once '../classes/QuestionClass.php';
 	
-	
+	$identifiant = strip_tags(addslashes (sha1($_POST['identifiant'])));
+	$mdp = strip_tags(addslashes (sha1($_POST['mdp'])));
 	
 	if ((isset($identifiant)) && (isset($mdp)))
 	{
-		$prof = new Professeur(TRUE);
+		$prof = new Professeur();
 		
 		if($prof->authentification($identifiant, $mdp) == TRUE) 
 		{	
-			//aller vers l'interface
-			header('Location: interface.php');
+			$pseudo = $_POST['identifiant'];
+			$_SESSION['pseudo'] = $pseudo;
+			$_SESSION['idProf'] = $prof->getId();
+			echo "<script type='text/javascript'>document.location.replace('http://iutdijon.u-bourgogne.fr/pedago/iq/kidioui/admin/interface.php');</script>";
 		}
 		
 		else 
-			echo 'Désolé, mais vous n\êtes pas autorisé à acceder à cet espace.';
+			echo 'Identifiant ou mot de passe incorrect.';
 	}
 ?>
