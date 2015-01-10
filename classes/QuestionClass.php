@@ -9,13 +9,9 @@ class Question
 	private $question;
 	private $code;
 	private $publiable;
-<<<<<<< HEAD
 	private $theme;
 	
 	/*Constructeur de la classe Question, initialise la connexion à la BDD*/
-=======
-	
->>>>>>> 6490a593d3f7e233c1d6e368967b6f70ee46f1f0
 	public function __construct()
 	{
 		
@@ -56,7 +52,6 @@ class Question
 		return $chaine;
 	}
 	
-<<<<<<< HEAD
 	/*Retourne les propriétés de la question et les réponses, sous forme d'un tableau */
 	public function toArray()
 	{
@@ -72,32 +67,6 @@ class Question
 	
 	}
 	/* Fonction permettant d'ajouter la question actuelle dans la BDD, ainsi que les réponses correspondante, contenu dans $arrayReponse*/
-=======
-	public function hydrate(array$donnees)
-	{
-		foreach($donnees as $key=>$value)
-		{
-			$method='set'.ucfirst($key);
-			if(method_exists($this,$method))
-				$this->$method($value);
-		}
-	}
-	
-	public function toString()
-	{
-		$chaine = $this->idQuestion . '/' . $this->idProf . '/' . $this->question . '/' . $this->code . '/' . $this->publiable;
-		
-		$reponse = $this->getReponse();
-		
-		for($i=0;$i<count($reponse); $i++)
-		{
-			$chaine+= $reponse[$i];
-		}	
-		
-		return $chaine;
-	}
-	
->>>>>>> 6490a593d3f7e233c1d6e368967b6f70ee46f1f0
 	public function ajouter($arrayReponse)
 	{
 		
@@ -108,12 +77,8 @@ class Question
 		$requete->execute(array(
 			'id_prof' => $this->idProf,
 			'nomQuestion' => $this->question,
-<<<<<<< HEAD
 			'code' => $this->code,
 			'theme' => $this->theme));
-=======
-			'code' => $this->code));
->>>>>>> 6490a593d3f7e233c1d6e368967b6f70ee46f1f0
 					
 				
 		$requete=$this->bdd->prepare('
@@ -142,10 +107,7 @@ class Question
 		
 	}
 	
-<<<<<<< HEAD
 	/*Fonction permettant de modifier la question d'id $id, avec le tableau de reponse $arrayReponse*/
-=======
->>>>>>> 6490a593d3f7e233c1d6e368967b6f70ee46f1f0
 	public function modifier($id, $arrayReponse)
 	{
 				
@@ -183,7 +145,6 @@ class Question
 		
 		$updateCode->execute(array('code' => $this->code,'id' => $id));
 		
-<<<<<<< HEAD
 		$updateTheme=$this->bdd->prepare('UPDATE question
 		SET id_theme = :theme WHERE id_question = :id' );
 		
@@ -208,29 +169,13 @@ class Question
 			return true;
 		else
 			return false;
-=======
-		
-	
-	}
-	
-	
-	public function supprimer($id)
-	{
-
-		$deleteReponse=$this->bdd->exec('DELETE FROM reponse
-		WHERE id_question = '. $id);
-		
-		$deleteQuestion=$this->bdd->exec('DELETE FROM question
-		WHERE id_question = '. $id);
->>>>>>> 6490a593d3f7e233c1d6e368967b6f70ee46f1f0
 		
 	}
 
 	
-	
+	/* Fonction renvoyant une chaine de caractere via la fonction toString(), contenant la question de code $code*/
 	public function afficher($code)
 	{
-<<<<<<< HEAD
 		$requete= $this->bdd->prepare('SELECT * FROM question WHERE code = :code');
 		
 		$requete->execute(array('code' => $code));
@@ -251,38 +196,17 @@ class Question
 		
 	}
 	
-	public function hydrateId($question)
-=======
-		$requete= $this->bdd->prepare('
-		SELECT *  
-		FROM question
-		WHERE code = :code');
-		
-		$requete->execute(array('code' => $code));
-		
-		
-		$result = $requete->fetch(PDO::FETCH_ASSOC);
-		print_r($result);
-		
-		/*$result = $requete->fetch(PDO::FETCH_ASSOC);
-		$this->hydrate($result);*/
-		
-		return $this->toString();
-	}
-	
-	
-	public function getListeQuestion()
->>>>>>> 6490a593d3f7e233c1d6e368967b6f70ee46f1f0
+	/*Fonction permettant d'initialiser les attributs de la question via la question d'id $id dans la BDD*/
+	public function hydrateId($id)
 	{
-		$requete= $this->bdd->prepare('SELECT * FROM question WHERE id_question = :question');
+		$requete= $this->bdd->prepare('SELECT * FROM question WHERE id_question = :id');
 		
-		$requete->execute(array('question' => $question));
+		$requete->execute(array('id' => $id));
 		if($requete!=false)
 		{
 			$result = $requete->fetch(PDO::FETCH_ASSOC);
 			$this->hydrate($result);
 		}
-<<<<<<< HEAD
 		
 	}
 	
@@ -322,16 +246,10 @@ class Question
 	}
 	
 	public function getReponse($id)
-=======
-		return $array;
-	}
-	
-	public function getReponse()
->>>>>>> 6490a593d3f7e233c1d6e368967b6f70ee46f1f0
 	{
 		$requete = $this->bdd->prepare('SELECT nomReponse FROM reponse WHERE id_question = :id');
 		
-		$requete->execute(array('id' => $this->idQuestion));				
+		$requete->execute(array('id' => $id));				
 		
 		$array = array();
 		while($donnees=$requete->fetch(PDO::FETCH_NUM))
@@ -342,7 +260,6 @@ class Question
 		return $array;
 	}
 	
-<<<<<<< HEAD
 	public function getIdReponse($reponse)
 	{
 		$requete = $this->bdd->prepare('SELECT id_reponse FROM reponse WHERE nomReponse = :reponse');
@@ -363,14 +280,12 @@ class Question
 			echo '<td>'.$array[3].'</td>';
 			
 			
-			echo 	'<td><input type="button" value="Modifier" onclick="location.assign(\'http://iutdijon.u-bourgogne.fr/pedago/iq/kidioui/admin/trait_mod.php/?nom=' . $array[0] . '\')" </td>
-					<td><input type="button" value="Supprimer" onclick="location.assign(\'http://iutdijon.u-bourgogne.fr/pedago/iq/kidioui/admin/trait_sup.php/?nom=' . $array[0] . '\')" </td>
-					<td><input type="button" value="Publier" onclick="location.assign(\'http://iutdijon.u-bourgogne.fr/pedago/iq/kidioui/admin/trait_pub.php/?nom=' . $array[0] . '\')" </td>										
+			echo 	'<td><input type="button" value="Modifier" onclick="location.assign(\'http://iutdijon.u-bourgogne.fr/pedago/iq/kidioui/admin/trait_mod.php?nom=' . $array[0] . '\')" </td>
+					<td><input type="button" value="Supprimer" onclick="location.assign(\'http://iutdijon.u-bourgogne.fr/pedago/iq/kidioui/admin/trait_sup.php?nom=' . $array[0] . '\')" </td>
+					<td><input type="button" value="Publier" onclick="location.assign(\'http://iutdijon.u-bourgogne.fr/pedago/iq/kidioui/admin/trait_pub.php?nom=' . $array[0] . '\')" </td>										
 				</tr>';
 	}
 	
-=======
->>>>>>> 6490a593d3f7e233c1d6e368967b6f70ee46f1f0
 	
 	
 	
@@ -378,20 +293,12 @@ class Question
 	
 	public function getIdQuestion()
 	{
-<<<<<<< HEAD
 		return $this->idQuestion;
-=======
-		return $this->id_question;
->>>>>>> 6490a593d3f7e233c1d6e368967b6f70ee46f1f0
 	}
 	
 	public function getIdProf()
 	{
-<<<<<<< HEAD
 		return $this->idProf;
-=======
-		return $this->id_prof;
->>>>>>> 6490a593d3f7e233c1d6e368967b6f70ee46f1f0
 	}
 	
 	public function getQuestion()
@@ -409,7 +316,6 @@ class Question
 		return $this->publiable;
 	}
 	
-<<<<<<< HEAD
 	public function getTheme()
 	{
 		return $this->theme;
@@ -426,19 +332,6 @@ class Question
 	public function setId_prof($idP)
 	{
 		$this->idProf = $idP;
-=======
-	
-	
-	
-	public function setId_question($id)
-	{
-		$this->idQuestion = $id;
-	}
-	
-	public function setId_prof($id)
-	{
-		$this->idProf = $id;
->>>>>>> 6490a593d3f7e233c1d6e368967b6f70ee46f1f0
 	}
 	
 	public function setNomQuestion($question)
@@ -456,14 +349,11 @@ class Question
 		$this->publiable = $bool;
 	}
 	
-<<<<<<< HEAD
 	public function setTheme($theme)
 	{
 		$this->theme = $theme;
 	}
 	
-=======
->>>>>>> 6490a593d3f7e233c1d6e368967b6f70ee46f1f0
 	
 	
 	

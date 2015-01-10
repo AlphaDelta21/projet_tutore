@@ -14,7 +14,7 @@
 			<link rel="shortcut icon" type="image/x-icon" href="../images/iut-dijon.jpg" />
 			<meta name="generator" content="Bluefish 2.2.6" >
 			<meta name="author" content="elodie" >
-			<meta name="date" content="2015-01-03T15:39:43+0100" >
+			<meta name="date" content="2015-01-10T17:38:11+0100" >
 			<meta name="copyright" content="www.nomsite.fr">
 			<meta name="keywords" content="">
 			<meta name="description" content="Site de sondages de l'IUT informatique de Dijon">
@@ -34,8 +34,7 @@
 	<div class="contenupage">
 	
 	<?php
-		$id_question = $_GET['nom'];
-		echo $id_question;
+		$id_question = $_GET['id'];
 
 		$question = new Question();
 		

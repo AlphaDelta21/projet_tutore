@@ -4,7 +4,7 @@
 	require_once '../classes/QuestionClass.php';
 	
 	$_SESSION['pseudo'];
-	$id_question = $_GET['nom'];
+	$id_question = $_GET['id'];
 	$question = new Question();
 	
 	$question->hydrateId($id_question);
@@ -41,21 +41,23 @@
 	<div class="contenupage">
 		<h2>Modification question</h2>
 						
-		<form method="POST" action="trait_mod_final.php" style="text-align: left; margin: 3px;">
+		<form method="POST" action="trait_mod_final.php<?php echo "?id=".$id_question?>" style="text-align: left; margin: 3px;">
 			<label>Question :</label>
 				<textarea name="editor1" id="editor1" cols="25" rows="5" style=" margin: 5px; resize:none;" required>
 				<?php echo $question->getQuestion();?>
 				</textarea> <br>
 			<label>Réponse 1 :</label>
-				<input type="text" id="rep1" name="reponse[]" value="<?php echo $reponse[0] ?>" required> <br>
+				<input type="text" id="rep1" name="reponse0" value="<?php echo $reponse[0] ?>" required> <br>
 			<label>Réponse 2 :</label>
-				<input type="text" id="rep2" name="reponse[]" value="<?php echo $reponse[1] ?>"required> <br>
+				<input type="text" id="rep2" name="reponse1" value="<?php echo $reponse[1] ?>"required> <br>
 			<label>Réponse 3 :</label>
-				<input type="text" id="rep3" name="reponse[]" value="<?php echo $reponse[2] ?>"> <br>
+				<input type="text" id="rep3" name="reponse2" value="<?php echo $reponse[2] ?>"> <br>
 			<label>Réponse 4 :</label>
-				<input type="text" id="rep4" name="reponse[]" value="<?php echo $reponse[3] ?>"> <br>
+				<input type="text" id="rep4" name="reponse3" value="<?php echo $reponse[3] ?>"> <br>
 			<label>Code identifiant :</label>
 				<input type="text" id="code" name="code" value="<?php echo $question->getCode(); ?>" required> <br>
+			<label>Theme :</label>
+				<input type="text" id="theme" name="theme" value="<?php echo $question->getCode(); ?>" required> <br>
 				<input type="submit" id="poster" name="modifier" value="Modifier">
 		</form>
 		

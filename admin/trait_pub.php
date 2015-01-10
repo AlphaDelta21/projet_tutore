@@ -3,7 +3,7 @@
 	require_once '../classes/ProfesseurClass.php';
 	require_once '../classes/QuestionClass.php';
 	
-	$id = $_GET['nom'];
+	$id = $_GET['id'];
 	$question = new Question();
 	
 	$array = $question->publier($id);

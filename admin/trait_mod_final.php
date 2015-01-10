@@ -4,12 +4,8 @@
 	require_once '../classes/QuestionClass.php';
 	
 	$_SESSION['pseudo'];
-	$id_question = $_GET['nom'];
-	$question = new Question();
-	
-/*$tab = array("Chocolat", "Vanille", "Pistache");
-	$question->modifier($texte1, $tab, $texte2);*/
-	
+	$id_question = $_GET['id'];
+	$question = new Question();	
 ?>
 
 <!DOCTYPE html>
@@ -22,7 +18,7 @@
 		<link rel="shortcut icon" type="image/x-icon" href="../images/iut-dijon.jpg" />
 		<meta name="generator" content="Bluefish 2.2.6" >
 		<meta name="author" content="elodie" >
-		<meta name="date" content="2015-01-10T16:27:14+0100" >
+		<meta name="date" content="2015-01-10T17:51:59+0100" >
 		<meta name="copyright" content="www.nomsite.fr">
 		<meta name="keywords" content="">
 		<meta name="description" content="Site de sondages de l'IUT informatique de Dijon">
@@ -41,7 +37,23 @@
 	<div class="contenupage">
 		<h2>Modification question</h2>
 		
-		</form>
+			<?php 
+				$question = new Question();
+				$question->hydrateId($id_question);
+				$question->setNomQuestion($_POST['editor1']);
+				$question->setCode($_POST['code']);
+				$question->setTheme($_POST['theme']);
+				if(isset($_POST['reponse0']) AND isset($_POST['reponse1']))
+					$arrayReponse=array($_POST['reponse0'], $_POST['reponse1']);
+				if(isset($_POST['reponse2']))
+					array_push($arrayReponse, $_POST['reponse2']);
+				if(isset($_POST['reponse3']))
+					array_push($arrayReponse, $_POST['reponse3']);
+				
+				$question->modifier($id_question, $arrayReponse);
+			?>
+			<p>La question a bien été modifié </p>
+			<form action="interface.php"><input type="submit" value="Retour page d'accueil"></form>
 		
 	</div>	
 </body>

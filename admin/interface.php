@@ -13,7 +13,7 @@
 			<link rel="shortcut icon" type="image/x-icon" href="../images/iut-dijon.jpg" />
 			<meta name="generator" content="Bluefish 2.2.6" >
 			<meta name="author" content="elodie" >
-			<meta name="date" content="2015-01-08T18:12:55+0100" >
+			<meta name="date" content="2015-01-10T17:48:58+0100" >
 			<meta name="copyright" content="www.nomsite.fr">
 			<meta name="keywords" content="">
 			<meta name="description" content="Site de sondages de l'IUT informatique de Dijon">
@@ -41,7 +41,7 @@
 				<div style=" height: 500px; overflow-y:scroll;">
 				
 				<table class="table_historique" style="border: 1px solid black; border-collapse: collapse; paddin: 0px;">
-					<th colspan="3" style="width: 90% background-color: background-color: #CA0062;">Question</th>	
+					<th style="width: 90% background-color: background-color: #CA0062;">Question</th> <th style="width: 90% background-color: background-color: #CA0062;">Code sécurité</th> <th colspan="4" style="width: 90% background-color: background-color: #CA0062;"></th>	
 				<?php
 						
 						$question = new Question();
